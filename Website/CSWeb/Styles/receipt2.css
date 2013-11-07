@@ -1,0 +1,179 @@
+/* CSS Document */
+
+/* RECEIPT */
+
+
+/* receipt styles */
+.autoship_receipt p {
+	font-size: 12px;
+	line-height: 17px;
+	padding-bottom: 20px;
+}
+.receipt .printfriendly {
+	float: right;
+	font-size: 13px;
+	position: relative;
+	text-align: right;
+	text-transform: uppercase;
+	top: 36px;
+	width: 250px;
+}
+.receipt .printfriendly a {
+	color: #737373;
+}
+.receipt .printfriendly a span {
+	text-decoration: underline;
+}
+
+.receipt .shoppingmain {
+	background: url("../Content/Images/receipt_top1.jpg") no-repeat scroll center top transparent;
+	color: #595959;
+	padding: 35px 33px 27px 38px;
+	position: relative;
+}
+.receipt  .billinghead1 {
+	color: #737373;
+	font-size: 16px;
+	margin: 0;
+	font-weight: bold;
+	padding: 0 0 12px 0;
+	text-transform: uppercase;
+}
+.receipt  .billinghead1 a {
+	color: #737373;
+	text-decoration: none;
+}
+.receipt  .billinghead2 {
+	color: #737373;
+	margin: 0;
+	font-weight: normal;
+	padding: 0;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.receipt .billing_left p, .receipt .billing_right p {
+	font-size: 14px;
+	padding-bottom: 6px;
+	margin: 0;
+	color:#8c8c8c;
+}
+.receipt .billing_left a, .billing_right a {
+	color: #5987c6;
+}
+.receipt h4 {
+	color: #000;
+	font-size: 23px;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+.receipt .your_order_number {
+	padding-bottom: 12px;
+}
+.receipt span.receipt_email {
+	color:#0195b5;
+	font-weight: bold;
+}
+.receipt .receipt_divider {
+	background: url(../Content/Images/receipt_line.jpg) no-repeat top center;
+	width: 834px;
+	height: 30px;
+	position:relative;
+}
+.page_receipt {
+	padding: 30px 38px;	
+}
+.receipt .receipt_row {
+	position:relative;
+	font-size: 12px;
+}
+.receipt div.receipt_row.rowheader {
+	font-size: 12px;
+	font-weight: bold;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+.receipt .receipt_row1 {
+	margin-left: 14px;
+	padding-bottom: 12px;
+	font-weight: bold;
+	position: relative;
+	width: 394px;
+	float:left;
+}
+.receipt div.rowheader .receipt_row1 {
+	padding-bottom: 0px;
+}
+.receipt .receipt_row2 {
+	position: relative;
+	float: left;
+	text-align: center;
+	width:75px;
+}
+.receipt .receipt_row3 {
+	position: relative;
+	float: left;
+	text-align: right;
+	width:117px;
+}
+.receipt .receipt_row4 {
+	position: relative;
+	float: left;
+	text-align: right;
+	width:106px;
+}
+.receipt .receipt_row5 {
+	position: relative;
+	float: left;
+	text-align: right;
+	width:112px;
+}
+.black {
+	color: #000;	
+}
+.receipt .receipt_row_totaldescription {
+	position: relative;
+	float: left;
+	text-transform: uppercase;
+	width: 170px;
+	line-height: 20px;
+	padding: 10px 0;
+	text-align:right;
+	margin-left: 584px;
+	color:#737373;
+	font-size:13px;
+}
+.receipt .receipt_row_total {
+	position: relative;
+	float: left;
+	padding: 10px 0;
+	line-height: 20px;
+	text-align:right;
+	width: 65px;
+	color:#737373;
+}
+.receipt .billing_left {
+	float: left;
+	width: 346px;
+	margin-top: 20px;
+	position: relative;
+	margin-bottom: 60px;
+	margin-left:10px;
+}
+.receipt .billing_right {
+	float: left;
+	width: 346px;
+	position: relative;
+	margin-top: 20px;
+	margin-left: 60px;
+	margin-bottom: 60px;
+}
+.receipt .receiptemail {
+	color: #dc453d;
+}
+.receipt .shaded {
+	background-color: #f2f2f2;
+}
+.receipt .shaded2 {
+	background-color: #f2f2f2;
+	margin: 6px 0;
+}
