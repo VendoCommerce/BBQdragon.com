@@ -109,7 +109,7 @@ namespace CSWeb.Root.UserControls
             //String.Format(@"$(function() {{$('#{0}, #{1}, #{2}').autotab_magic().autotab_filter('numeric')}});",
             //        txtPhoneNumber1.ClientID, txtPhoneNumber2.ClientID, txtPhoneNumber3.ClientID), true);
 
-            
+
 
         }
 
@@ -340,7 +340,7 @@ namespace CSWeb.Root.UserControls
             else
                 lblPhoneNumberError.Visible = false;
 
-            
+
 
             if (CommonHelper.EnsureNotNull(txtEmail.Text) == String.Empty)
             {
@@ -494,7 +494,7 @@ namespace CSWeb.Root.UserControls
                 //        lblZiPError.Visible = false;
 
                 //}
-            
+
             }
 
 
@@ -612,7 +612,7 @@ namespace CSWeb.Root.UserControls
             return _bError;
 
         }
-        
+
         protected void cbShippingSame_CheckedChanged(object sender, EventArgs e)
         {
             if (!cbShippingSame.Checked)
@@ -651,10 +651,10 @@ namespace CSWeb.Root.UserControls
             }
             catch
             {
-                
-                
+
+
             }
-            
+
 
         }
 
@@ -663,7 +663,7 @@ namespace CSWeb.Root.UserControls
             if (!validateInput())
             {
                 SaveData();
-                
+
             }
 
 
@@ -682,8 +682,6 @@ namespace CSWeb.Root.UserControls
             ClientCartContext clientData = ClientOrderData;
             if (Page.IsValid)
             {
-                Customer CustData = new Customer();
-
                 //Set Customer Information
                 Address shippingAddress = new Address();
                 shippingAddress.FirstName = CommonHelper.fixquotesAccents(txtShippingFirstName.Text);
@@ -695,11 +693,8 @@ namespace CSWeb.Root.UserControls
                 shippingAddress.CountryId = Convert.ToInt32(ddlShippingCountry.SelectedValue);
                 shippingAddress.ZipPostalCode = CommonHelper.fixquotesAccents(txtShippingZipCode.Text);
 
+                Customer CustData = new Customer();
                 CustData.ShippingAddress = shippingAddress;
-
-
-
-
 
                 CustData.FirstName = CommonHelper.fixquotesAccents(txtShippingFirstName.Text);
                 CustData.LastName = CommonHelper.fixquotesAccents(txtShippingFirstName.Text);
@@ -738,7 +733,7 @@ namespace CSWeb.Root.UserControls
                 paymentDataInfo.CreditCardCSC = txtCvv.Text;
 
                 clientData.PaymentInfo = paymentDataInfo;
-
+                clientData.CustomerInfo = CustData;
                 // add rush shipping level to cart object
                 if (!string.IsNullOrEmpty(ddlAdditionShippingCharge.SelectedValue))
                 {
@@ -816,7 +811,7 @@ namespace CSWeb.Root.UserControls
         }
         #endregion General Methods
 
-        
+
 
     }
 }

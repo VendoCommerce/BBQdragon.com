@@ -116,7 +116,10 @@ namespace CSWeb.FulfillmentHouse
                     }
                     xml.WriteElementString("BILL_TO_ZIP", orderItem.CustomerInfo.BillingAddress.ZipPostalCode);
                     xml.WriteElementString("BILL_TO_COUNTRY_CODE", orderItem.CustomerInfo.BillingAddress.CountryCode.Trim());
-                    xml.WriteElementString("UNIQUE-ID", orderItem.OrderId.ToString());
+                    if (config.Attributes["OrderIdPrefix"] != null)
+                        xml.WriteElementString("UNIQUE-ID", config.Attributes["OrderIdPrefix"].Value + orderItem.OrderId.ToString());
+                    else
+                        xml.WriteElementString("UNIQUE-ID", orderItem.OrderId.ToString());
                     xml.WriteElementString("HAS_FINANCIAL", config.Attributes["HAS_FINANCIAL"].Value);
                     xml.WriteElementString("HAS_GIFT_REC", config.Attributes["HAS_GIFT_REC"].Value);
                     xml.WriteElementString("HAS_CALLCENTER_REC", config.Attributes["HAS_CALLCENTER_REC"].Value);
