@@ -39,9 +39,7 @@
                         onselectedindexchanged="ddlQty_SelectedIndexChanged">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
-                    <asp:ListItem>3</asp:ListItem>
-                    <asp:ListItem>4</asp:ListItem>
-                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>                    
                     </asp:DropDownList>
                 </div>
             <h2 style="display: none;">
