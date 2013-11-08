@@ -83,7 +83,7 @@ namespace CSWeb.Root.UserControls
                     BindRegions();
                     
                 }
-                PopulateQtyDropDown();
+                
             }
         }
 
@@ -687,7 +687,7 @@ namespace CSWeb.Root.UserControls
 
         }
 
-        #endregion General Methods
+        
 
         protected void ddlQty_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -707,18 +707,6 @@ namespace CSWeb.Root.UserControls
             Session["ClientOrderData"] = CartContext;
             ShoppingCartControl1.BindControls();
         }
-        public void PopulateQtyDropDown()
-        {
-            int qty = 1;
-            if (CartContext.CartInfo.ItemCount > 0)
-            {
-                foreach (Sku itemsku in CartContext.CartInfo.CartItems)
-                {
-                    qty = itemsku.Quantity;
-                }
-            }
-            ddlQty.SelectedValue = qty.ToString();
-        }
-
+        #endregion General Methods
     }
 }

@@ -15,14 +15,17 @@ using System.Web.UI.WebControls;
 using CSBusiness.Payment;
 using CSBusiness.Shipping;
 using CSWebBase;
+using CSBusiness.ShoppingManagement;
+using CSBusiness.OrderManagement;
 
-namespace CSWeb.Cart_A.UserControls
+namespace CSWeb.Root.UserControls
 {
 
     public partial class ShippingBillingCreditForm : System.Web.UI.UserControl
     {
         #region Variable and Events Declaration
         bool _bError = false;
+        public int rId = 1;
         public string RedirectUrl
         {
             get
@@ -660,11 +663,7 @@ namespace CSWeb.Cart_A.UserControls
             if (!validateInput())
             {
                 SaveData();
-                SaveAdditionaInfo();
-                //int qId = 1;
-                Response.Redirect(string.Format("AddProduct.aspx?PId={0}&CId={1}",
-                    44, Convert.ToString((int)CSBusiness.ShoppingManagement.ShoppingCartType.SingleCheckout)));
-                //Response.Redirect("store/addproduct.aspx" + "?PId=30&CId=" + (int)CSBusiness.ShoppingManagement.ShoppingCartType.ShippingCreditCheckout);
+                
             }
 
 
@@ -707,7 +706,7 @@ namespace CSWeb.Cart_A.UserControls
                 CustData.PhoneNumber = txtPhoneNumber1.Text + txtPhoneNumber2.Text + txtPhoneNumber3.Text;
                 CustData.Email = CommonHelper.fixquotesAccents(txtEmail.Text);
                 CustData.Username = CommonHelper.fixquotesAccents(txtEmail.Text);
-                
+
                 //CustData.ShippingAddress = billingAddress;
 
                 if (!pnlShippingAddress.Visible)
@@ -728,7 +727,7 @@ namespace CSWeb.Cart_A.UserControls
                     CustData.BillingAddress = billingAddress;
                 }
 
-                
+
 
                 PaymentInformation paymentDataInfo = new PaymentInformation();
                 string CardNumber = txtCCNumber1.Text;
@@ -742,21 +741,82 @@ namespace CSWeb.Cart_A.UserControls
 
                 // add rush shipping level to cart object
                 if (!string.IsNullOrEmpty(ddlAdditionShippingCharge.SelectedValue))
-                {                    
+                {
                     clientData.CartInfo.ShippingChargeKey = ddlAdditionShippingCharge.SelectedValue;
                 }
 
                 ClientOrderData = clientData;
 
                 //Set the Client Order objects
-                ClientCartContext contextData = (ClientCartContext)Session["ClientOrderData"];
-                contextData.CustomerInfo = CustData;
-                contextData.CartAbandonmentId = CSResolve.Resolve<ICustomerService>().InsertCartAbandonment(CustData, contextData);
-                Session["ClientOrderData"] = contextData;
+                int orderId = 0;
+
+                if (CSFactory.OrderProcessCheck() == (int)OrderProcessTypeEnum.InstantOrderProcess
+                    || CSFactory.OrderProcessCheck() == (int)OrderProcessTypeEnum.EnableReviewOrder
+                    || CSFactory.OrderProcessCheck() == (int)OrderProcessTypeEnum.EnableUpsellReviewOrder)
+                {
+                    //Save Order information before upsale process
+
+                    if (rId == 1)
+                        orderId = CSResolve.Resolve<IOrderService>().SaveOrder(clientData);
+                    else
+                    {
+                        //update order with modified customer shipping and billing and credit card information
+                        orderId = clientData.OrderId;
+                        CSResolve.Resolve<IOrderService>().UpdateOrder(orderId, clientData);
+                    }
+
+                    if (orderId > 1)
+                    {
+                        clientData.OrderId = orderId;
+                        Session["ClientOrderData"] = clientData;
+
+
+
+                        if (rId == 1)
+                            Response.Redirect("PostSale.aspx");
+                        else
+                            Response.Redirect("CardDecline.aspx");
+                    }
+                }
             }
         }
-        
+        protected void ddlQty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int qty = 1;
+            int additionalSku = 106; // update this to be sku attribute.
+            qty = Convert.ToInt32(ddlQty.SelectedValue.ToString());
+            if (qty == 1)
+            {
+                ClientOrderData.CartInfo.SkuExists(additionalSku);
+                ClientOrderData.CartInfo.RemoveSku(additionalSku);
+            }
+            else if (qty > 1)
+            {
+                ClientOrderData.CartInfo.AddOrUpdate(additionalSku, qty - 1, true, false, false);
+                ClientOrderData.CartInfo.Compute();
+            }
+            Session["ClientOrderData"] = ClientOrderData;
+            ShoppingCartControl1.BindControls();
+        }
+        protected void ddlShippingState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Address shippingAddress = new Address();
+            shippingAddress.FirstName = CommonHelper.fixquotesAccents(txtShippingFirstName.Text);
+            shippingAddress.LastName = CommonHelper.fixquotesAccents(txtShippingLastName.Text);
+            shippingAddress.Address1 = CommonHelper.fixquotesAccents(txtShippingAddress1.Text);
+            shippingAddress.Address2 = CommonHelper.fixquotesAccents(txtShippingAddress2.Text);
+            shippingAddress.City = CommonHelper.fixquotesAccents(txtShippingCity.Text);
+            shippingAddress.StateProvinceId = Convert.ToInt32(ddlShippingState.SelectedValue);
+            shippingAddress.CountryId = Convert.ToInt32(ddlShippingCountry.SelectedValue);
+            shippingAddress.ZipPostalCode = CommonHelper.fixquotesAccents(txtShippingZipCode.Text);
+
+            ClientOrderData.CartInfo.ShippingAddress = shippingAddress;
+            Session["ClientOrderData"] = ClientOrderData;
+            ShoppingCartControl1.BindControls();
+        }
         #endregion General Methods
+
+        
 
     }
 }

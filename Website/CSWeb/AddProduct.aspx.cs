@@ -77,12 +77,21 @@ namespace CSWeb.Root.Store
                             bool settingVal = Convert.ToBoolean(ConfigHelper.ReadAppSetting("DisCountCardDisplay", "false"));
                             cartObject.AddItem(dId, qId, settingVal, false);
                         }
-                        cartObject.ShippingAddress = clientData.CustomerInfo.BillingAddress;
+                        if (clientData.CustomerInfo != null)
+                            cartObject.ShippingAddress = clientData.CustomerInfo.BillingAddress;
+                        else 
+                            cartObject.ShippingAddress = new Address();
+                            
                         cartObject.Compute();
                         cartObject.ShowQuantity = false;
                         clientData.CartInfo = cartObject;
                         Session["ClientOrderData"] = clientData;
-                        Response.Redirect("cart.aspx");
+                        if (Request["page"] != null && Request["page"].ToString().ToLower().Equals("onepay"))
+                        {
+                            Response.Redirect("cart1.aspx");
+                        }
+                        else
+                            Response.Redirect("cart.aspx");
                     }
 
                     else

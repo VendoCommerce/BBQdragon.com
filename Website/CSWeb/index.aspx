@@ -21,6 +21,7 @@
  
 <body>
  <form runat="server" id="fm1">
+ <a href="/AddProduct.aspx?PId=102&CId=2&page=onePay">Direct Link to One Page</a>
  <uc:BillingFormControl ID="sfcShippingInfo" runat="server" RedirectUrl="AddProduct.aspx" />
  
   <uc:TrackingPixels ID="TrackingPixels" runat="server" />

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="CSWeb.Root.Store.cart" EnableSessionState="True" %>
 <%@ Register Src="UserControls/TrackingPixels.ascx" TagName="TrackingPixels" TagPrefix="uc" %>
-<%@ Register Src="UserControls/BillingCreditForm.ascx" TagName="ShippingCreditForm" TagPrefix="uc" %> 
+<%@ Register Src="UserControls/ShippingBillingCreditForm.ascx" TagName="ShippingBillingCreditForm" TagPrefix="uc" %> 
 <!doctype html>
 <html>
 <head runat="server">
@@ -21,7 +21,7 @@
 <body>
  <form runat="server" id="fm1">
  
- <uc:ShippingCreditForm ID="bcfBillingCreditInfo" runat="server" RedirectUrl="AddProduct.aspx" />
+ <uc:ShippingBillingCreditForm ID="bscf" runat="server" />
  
   <uc:TrackingPixels ID="TrackingPixels" runat="server" />
  </form>

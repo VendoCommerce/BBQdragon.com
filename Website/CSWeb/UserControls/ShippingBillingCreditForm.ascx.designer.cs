@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CSWeb.Cart_A.UserControls {
+namespace CSWeb.Root.UserControls {
     
     
     public partial class ShippingBillingCreditForm {
@@ -29,6 +29,15 @@ namespace CSWeb.Cart_A.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upBillingForm;
+        
+        /// <summary>
+        /// ShoppingCartControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CSWeb.Root.UserControls.ShoppingCartControl ShoppingCartControl1;
         
         /// <summary>
         /// Div1 control.
@@ -308,6 +317,15 @@ namespace CSWeb.Cart_A.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// ddlQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlQty;
         
         /// <summary>
         /// pnlQuantity control.

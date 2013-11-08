@@ -97,7 +97,29 @@ namespace CSWeb.Root.Store
                     {
                         try
                         {
-                            //Add fullfillment Order Post method
+                            if (new CSWeb.FulfillmentHouse.Moulton().PostOrder(orderId))
+                            {
+                                if (Request.QueryString != null)
+                                {
+                                    Response.Redirect("receipt.aspx?" + Request.QueryString);
+                                }
+                                else
+                                {
+                                    Response.Redirect("receipt.aspx");
+                                }
+                            }
+                            else
+                            {
+                                OrderHelper.SendOrderFailedEmail(orderId);
+                                if (Request.QueryString != null)
+                                {
+                                    Response.Redirect("receipt.aspx?" + Request.QueryString);
+                                }
+                                else
+                                {
+                                    Response.Redirect("receipt.aspx");
+                                }
+                            }
                         }
                         catch (Exception ex)
                         {

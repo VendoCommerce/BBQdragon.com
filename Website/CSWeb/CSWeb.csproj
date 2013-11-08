@@ -291,14 +291,14 @@
     <Content Include="Cart_A\CheckoutSessionExpired.aspx" />
     <Content Include="Cart_A\PostSale.aspx" />
     <Content Include="Cart_A\ReviewOrder.aspx" />
-    <Content Include="Cart_A\UserControls\BillingShippingCreditForm.ascx" />
+    <Content Include="Cart1.aspx" />
     <Content Include="Cart_A\UserControls\CheckoutSummary.ascx" />
     <Content Include="Cart_A\UserControls\CheckoutThankYouModule.ascx" />
     <Content Include="Cart_A\UserControls\PayPalResponseForm.ascx" />
     <Content Include="Cart_A\UserControls\Footer.ascx" />
     <Content Include="Cart_A\UserControls\Header.ascx" />
     <Content Include="Cart_A\UserControls\ReviewOrder.ascx" />
-    <Content Include="Cart_A\UserControls\ShippingBillingCreditForm.ascx" />
+    <Content Include="UserControls\ShippingBillingCreditForm.ascx" />
     <Content Include="Cart_A\UserControls\TrackingPixels.ascx" />
     <Content Include="Cart_A\UserControls\CardDecline.ascx" />
     <Content Include="AuthorizeOrder.aspx" />
@@ -1059,12 +1059,9 @@
     <Compile Include="Cart_A\ReviewOrder.aspx.designer.cs">
       <DependentUpon>ReviewOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cart_A\UserControls\BillingShippingCreditForm.ascx.cs">
-      <DependentUpon>BillingShippingCreditForm.ascx</DependentUpon>
+    <Compile Include="Cart1.aspx.cs">
+      <DependentUpon>Cart1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cart_A\UserControls\BillingShippingCreditForm.ascx.designer.cs">
-      <DependentUpon>BillingShippingCreditForm.ascx</DependentUpon>
     </Compile>
     <Compile Include="Cart_A\UserControls\CheckoutSummary.ascx.cs">
       <DependentUpon>CheckoutSummary.ascx</DependentUpon>
@@ -1105,11 +1102,11 @@
     <Compile Include="Cart_A\UserControls\ReviewOrder.ascx.designer.cs">
       <DependentUpon>ReviewOrder.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Cart_A\UserControls\ShippingBillingCreditForm.ascx.cs">
+    <Compile Include="UserControls\ShippingBillingCreditForm.ascx.cs">
       <DependentUpon>ShippingBillingCreditForm.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cart_A\UserControls\ShippingBillingCreditForm.ascx.designer.cs">
+    <Compile Include="UserControls\ShippingBillingCreditForm.ascx.designer.cs">
       <DependentUpon>ShippingBillingCreditForm.ascx</DependentUpon>
     </Compile>
     <Compile Include="Cart_A\UserControls\TrackingPixels.ascx.cs">

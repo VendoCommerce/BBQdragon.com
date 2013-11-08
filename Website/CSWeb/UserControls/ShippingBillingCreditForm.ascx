@@ -1,4 +1,6 @@
-﻿<%@Control Language="C#" AutoEventWireup="true" Inherits="CSWeb.Cart_A.UserControls.ShippingBillingCreditForm" CodeBehind="ShippingBillingCreditForm.ascx.cs" %>
+﻿<%@Control Language="C#" AutoEventWireup="true" Inherits="CSWeb.Root.UserControls.ShippingBillingCreditForm" CodeBehind="ShippingBillingCreditForm.ascx.cs" %>
+<%@ Register Src="ShoppingCartControl.ascx" TagName="ShoppingCartControl"
+    TagPrefix="uc" %>
 <script type="text/javascript" src="/Scripts/autoTab.js"></script>
 <script type="text/javascript">
 
@@ -20,6 +22,9 @@
 
  <div class="cart_content_B clearfix">
   <div class="cart_left">
+    <h2 class="webfont1">Shopping Cart</h2>
+        
+        <uc:ShoppingCartControl ID="ShoppingCartControl1" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl>  
     </div>
   
   
@@ -27,7 +32,7 @@
     <div class="cartB"><img src="/Content/Images/a3/cartform_top.jpg" class="cart_top" />
                 
                 
-                <div id="Div1" class="form_line clearfix" runat="server">
+                <div id="Div1" class="form_line clearfix" runat="server" visible="false">
                     <div class="error-1">
                         <asp:Label ID="lblShippingCountryError" runat="server" Visible="false"></asp:Label></div>
                  
@@ -98,7 +103,7 @@
                     </div>
                     <label class="label-1">
                         State/Province*</label>
-                    <asp:DropDownList ID="ddlShippingState" runat="server" DataTextField="NAME" CssClass="text-1" size="1" AutoPostBack="true">
+                    <asp:DropDownList ID="ddlShippingState" runat="server" DataTextField="NAME" CssClass="text-1" size="1" onselectedindexchanged="ddlShippingState_SelectedIndexChanged"  AutoPostBack="true">
                     </asp:DropDownList>
                 </div>
                 <div class="form_line clearfix">
@@ -132,6 +137,18 @@
                     Email*</label>
                 <asp:TextBox ID="txtEmail" runat="server" MaxLength="100" CssClass="text-1"></asp:TextBox>
             </div>
+            <div class="form_line clearfix">
+                    <div class="error-1">                                                 
+                    </div>
+                    <label class="label-1">
+                        Quantity*</label>
+                    <asp:DropDownList ID="ddlQty" runat="server" CssClass="text-1" size="1"  AutoPostBack="true"
+                        onselectedindexchanged="ddlQty_SelectedIndexChanged">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>                    
+                    </asp:DropDownList>
+                </div>
             <asp:Panel ID="pnlQuantity" runat="server" Visible="false">
                 <div class="form_line clearfix">
                     <div class="error-1">
@@ -204,7 +221,7 @@
                     City*</label>
                 <asp:TextBox ID="txtCity" runat="server" MaxLength="30" CssClass="text-1"></asp:TextBox>
             </div>
-            <div class="form_line clearfix" runat="server">
+            <div class="form_line clearfix" runat="server" visible="false">
                 <div class="error-1">
                     <asp:Label ID="lblCountryError" runat="server" Visible="false"></asp:Label></div>
                 <label class="label-1">
