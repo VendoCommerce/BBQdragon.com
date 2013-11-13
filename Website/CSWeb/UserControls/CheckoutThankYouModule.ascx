@@ -46,12 +46,12 @@ function Clickheretoprint()
                  <asp:DataList runat="server" ID="dlordersList" RepeatLayout="Flow" RepeatDirection="Horizontal">
                     <ItemTemplate>
                     <tr> <td valign="top">
-                                <img src="<%# DataBinder.Eval(Container.DataItem, "ImagePath")%>" />
+                                <%# DataBinder.Eval(Container.DataItem, "LongDescription")%>
                             </td>
                              <td valign="top">
                             
 
-                                <%# DataBinder.Eval(Container.DataItem, "LongDescription")%>
+                                
                             </td>
                             <td valign="top" class="black bold text-center">
                                 <%# DataBinder.Eval(Container.DataItem, "Quantity")%>

@@ -157,6 +157,15 @@ protected Label lblPurchaseName, lblPromotionPrice;
             }
             return "";
         }
+        public String ImageURL(int skuid)
+        {
+            string imageUrl = "";
+            Sku s = new SkuManager().GetSkuByID(skuid);
+
+            imageUrl = s.ImagePath;
+
+            return imageUrl;
+        }
 
   
     }

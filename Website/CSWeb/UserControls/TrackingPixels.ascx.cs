@@ -49,14 +49,14 @@ namespace CSWeb.Root.UserControls
         private void WriteGAPixel()
         {
             StringBuilder sbGAPixel = new StringBuilder();
-            sbGAPixel.AppendFormat("pageTracker._addTrans('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}' );\n",
+            sbGAPixel.AppendFormat("_gaq.push(['_addTrans','{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}' ]);\n",
                CurrentOrder.OrderId.ToString(), "", Math.Round(CurrentOrder.Total, 2), Math.Round(CurrentOrder.Tax, 2), Math.Round(CurrentOrder.ShippingCost, 2),
                CurrentOrder.CustomerInfo.BillingAddress.City, CurrentOrder.CustomerInfo.BillingAddress.StateProvinceName, CurrentOrder.CustomerInfo.BillingAddress.CountryCode);
 
             foreach (Sku sku in CurrentOrder.SkuItems)
             {
-                sbGAPixel.AppendFormat("pageTracker._addItem('{0}','{1}','{2}','{3}','{4}','{5}');\n",
-                    CurrentOrder.OrderId.ToString(), sku.SkuCode, sku.LongDescription, "",
+                sbGAPixel.AppendFormat("_gaq.push(['_addItem','{0}','{1}','{2}','{3}','{4}','{5}']);\n",
+                    CurrentOrder.OrderId.ToString(), sku.SkuCode, sku.Title, "",
                     Math.Round(Convert.ToDouble(sku.InitialPrice), 2), sku.Quantity.ToString());
             }
 
@@ -64,6 +64,7 @@ namespace CSWeb.Root.UserControls
 
             litGAReceiptPixel.Text = sbGAPixel.ToString();
         }
+
 
 
         private void MDGConfirmPixel()
