@@ -133,9 +133,7 @@ namespace CSWeb.FulfillmentHouse
                         xml.WriteStartElement("LineItem");
                         xml.WriteElementString("QUANTITY_ORDERED", s.Quantity.ToString());
                         xml.WriteElementString("OFFER_CODE", s.SkuCode);
-                        xml.WriteElementString("OFFER_DESCRIPTION", s.SkuCode);
-                        xml.WriteElementString("TAXABLE_FLAG", config.Attributes["TAXABLE_FLAG"].Value);
-                        xml.WriteElementString("CONTINUITY_FLAG", config.Attributes["CONTINUITY_FLAG"].Value);
+                        xml.WriteElementString("OFFER_DESCRIPTION", s.SkuCode);                        
                         xml.WriteEndElement();
 
                     }                    
