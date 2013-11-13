@@ -310,6 +310,7 @@
     <Content Include="Content\Images\certs.jpg" />
     <Content Include="Content\Images\closequote.jpg" />
     <Content Include="Content\Images\contact_submit_btn.jpg" />
+    <Content Include="Content\Images\ctaposter.jpg" />
     <Content Include="Content\Images\diagram_1.jpg" />
     <Content Include="Content\Images\diagram_2.jpg" />
     <Content Include="Content\Images\diagram_3.jpg" />
@@ -321,6 +322,9 @@
     <Content Include="Content\Images\header_bg.jpg" />
     <Content Include="Content\Images\header_nav.png" />
     <Content Include="Content\Images\header_upsell.jpg" />
+    <Content Include="Content\Images\homeposter1.jpg" />
+    <Content Include="Content\Images\homeposter2.jpg" />
+    <Content Include="Content\Images\homeposter3.jpg" />
     <Content Include="Content\Images\home_bottom.jpg" />
     <Content Include="Content\Images\home_test1.jpg" />
     <Content Include="Content\Images\home_test2.jpg" />
@@ -358,8 +362,11 @@
     <Content Include="Content\Images\test_thumb2.jpg" />
     <Content Include="Content\Images\test_thumb3.jpg" />
     <Content Include="Content\Images\thumb1.jpg" />
+    <Content Include="Content\Images\thumb1.png" />
     <Content Include="Content\Images\thumb2.jpg" />
+    <Content Include="Content\Images\thumb2.png" />
     <Content Include="Content\Images\thumb3.jpg" />
+    <Content Include="Content\Images\thumb3.png" />
     <Content Include="Content\Images\upsell_arrow.png" />
     <Content Include="Content\Images\upsell_batteries.jpg" />
     <Content Include="Content\Images\upsell_pp.jpg" />
@@ -367,6 +374,19 @@
     <Content Include="Content\Images\warranty.jpg" />
     <Content Include="Content\Images\woodtile.jpg" />
     <Content Include="Content\Images\yes_btn.jpg" />
+    <Content Include="Content\Video\ctavideo.mp4" />
+    <Content Include="Content\Video\home1.mp4" />
+    <Content Include="Content\Video\home2.mp4" />
+    <Content Include="Content\Video\home3.mp4" />
+    <Content Include="Content\Video\how1.mp4" />
+    <Content Include="Content\Video\how2.mp4" />
+    <Content Include="Content\Video\how3.mp4" />
+    <Content Include="Content\Video\test1.mp4" />
+    <Content Include="Content\Video\test2.mp4" />
+    <Content Include="Content\Video\test3.mp4" />
+    <Content Include="Content\Video\test4.mp4" />
+    <Content Include="Content\Video\test5.mp4" />
+    <Content Include="Content\Video\test6.mp4" />
     <Content Include="footer.html" />
     <Content Include="footer_cart.html" />
     <Content Include="footer_upsell.html" />
@@ -1433,7 +1453,6 @@
     <Compile Include="App_Code\OrderHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Video\" />
     <Folder Include="obj\" />
     <Folder Include="Scripts\validation\languages\" />
   </ItemGroup>
