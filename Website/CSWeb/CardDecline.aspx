@@ -5,7 +5,8 @@
 <!doctype html>
 <html>
 <head id="Head1" runat="server">
-<meta charset="utf-8">    
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+<meta charset="utf-8"> 
 <title></title>
 <meta name="description" content=""/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>

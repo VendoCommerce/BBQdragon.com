@@ -3,9 +3,21 @@
 <asp:LinkButton ID="refresh" runat="server" CausesValidation="false"></asp:LinkButton>
 <asp:Repeater runat="server" ID="rptShoppingCart" OnItemDataBound="rptShoppingCart_OnItemDataBound"
     OnItemCommand="rptShoppingCart_OnItemCommand">
-    <HeaderTemplate>
+    <HeaderTemplate> <div class="cart_table clearfix">
+                 <div class="cart_image">Item
+                 </div>
+                  <div class="cart_text">&nbsp;
+                  </div>
+                     <div class="cart_select">Quantity
+                     </div>
+                        <div class="product_price">Price
+                        </div>
+                        </div>   <div class="horizontal_dots">
+        </div>
     </HeaderTemplate>
     <ItemTemplate>
+       
+       
         <div class="cart_table clearfix">
             <div class="cart_image">
                 <asp:Image runat="server" ID="imgProduct" />
@@ -18,7 +30,7 @@
             </div>
             <div class="cart_select">
            
-                <asp:TextBox runat="server" ID="txtQuantity" Font-Size="8pt" Text='1' MaxLength="3"
+                <asp:TextBox runat="server" ID="txtQuantity" MaxLength="3"
                     Columns="2" OnTextChanged="OnTextChanged_Changed"></asp:TextBox>
                 <asp:Label runat="server" ID="lblQuantity" CssClass="cart_select">
                 </asp:Label>
@@ -35,7 +47,7 @@
 </asp:Repeater>
 <asp:Panel ID="pnlTotal" runat="server">
     <asp:PlaceHolder runat="server" ID="holderTaxAndShipping">
-        <div class="horizontal_dots">
+         <div class="horizontal_dots">
         </div>
         <div class="cart_totals clearfix">
             <div class="cart_totals_left">
@@ -70,5 +82,4 @@
         </div>
     </asp:PlaceHolder>
 </asp:Panel>
-   <div class="cart_offer">
-            <strong>*Offer Details:</strong> offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer details offer</div>
+ 

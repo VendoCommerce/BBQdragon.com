@@ -4,26 +4,27 @@ $(document).ready(function () {
 	
 $(window).scrollTop(0);
 	
+$('.togglefaq').click(function(e) {
+e.preventDefault();
+var notthis = $('.active').not(this);
+notthis.find('.icon-minus').addClass('icon-plus').removeClass('icon-minus');
+notthis.toggleClass('active').next('.faqanswer').slideToggle(300);
+ $(this).toggleClass('active').next().slideToggle("fast");
+$(this).children().toggleClass('icon-plus icon-minus');
+    });
 	
-
-
-	$('.panel-collapse').on('show.bs.collapse', function () {
-    $(this).prev().find(".icon-plus").removeClass("icon-plus").addClass("icon-minus");
-}).on('hide.bs.collapse', function(){
-    $(this).prev().find(".icon-minus").removeClass("icon-minus").addClass("icon-plus");
-});
 
 
     $(".fancybox").fancybox();
 
 
-   $(".included").fancybox({
+
+    $(".guarantee").fancybox({
         closeBtn: false,
         fitToView: false,
-        wrapCSS: 'nowrapper',
-        padding: 0,
-        width: 710,
-        height: 461,
+        padding: 4,
+        width: 453,
+        height: 171,
         autoSize: false,
         closeClick: false,
         scrolling: 'no',
@@ -36,14 +37,14 @@ $(window).scrollTop(0);
             }
         }
     });
-
-    $(".guarantee").fancybox({
+	
+	    $(".warranty").fancybox({
         closeBtn: false,
         fitToView: false,
         wrapCSS: 'nowrapper',
-        padding: 0,
-        width: 373,
-        height: 469,
+        padding: 4,
+        width: 453,
+        height: 171,
         autoSize: false,
         closeClick: false,
         scrolling: 'no',
@@ -77,6 +78,30 @@ $(window).scrollTop(0);
         }
     });
 	
+//show diagram switcher 
+
+$('.show1').hover(function() {	
+	$('#diagram').hide();
+	$('#diagram2').hide();
+	$('#diagram3').hide();
+	$('#diagram1').show();
+  });	
+
+$('.show2').hover(function() {	
+	$('#diagram').hide();
+	$('#diagram2').show();
+	$('#diagram3').hide();
+	$('#diagram1').hide();
+  });	
+  
+ $('.show3').hover(function() {	
+	$('#diagram').hide();
+	$('#diagram2').hide();
+	$('#diagram3').show();
+	$('#diagram1').hide();
+  });	
+  
+ 
 /* home videos */
 
 
@@ -89,9 +114,9 @@ $(".hometest1").bind("click touch", function(e){
 	file: '/content/video/jennifer.mp4',
 	autostart: true,
     primary: "flash",   
-	image: '/content/images/poster_jennifer.jpg',
+	image: '/content/images/testimonialvideoposter.jpg',
 	controls: true,
-    width: 413, height: 232,
+    width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
@@ -115,8 +140,7 @@ $(".hometest2").bind("click touch", function(e){
 	autostart: true,
     primary: "flash",   
 	controls: true,
-	image: '/content/images/poster_stephanie.jpg',
-    width: 413, height: 232,
+    width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
@@ -140,8 +164,7 @@ $(".hometest3").bind("click touch", function(e){
 	autostart: true,
     primary: "flash",   
 	controls: true,
-	image: '/content/images/poster_ashley.jpg',
-    width: 413, height: 232,
+    width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
@@ -156,22 +179,18 @@ $(".hometest3").bind("click touch", function(e){
 });
 
 
-
-	
+//Testimonial Videos 
 $(".test1").bind("click touch", function(e){
 	$("#test1").show();
 	$("#test2").hide();
 	$("#test3").hide();
-	$("#test4").hide();
-	$("#test5").hide();
-	$("#test6").hide();
 			
   jwplayer('videotest1').setup({
 	file: '/content/video/ashley.mp4',
 	autostart: true,
     primary: "flash",   
 	controls: true,
-    width: 499, height: 281,
+    width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events: {
@@ -182,9 +201,6 @@ $('.test2').trigger('click');
   });
 	jwplayer('videotest2').stop();
 	jwplayer('videotest3').stop();
-	jwplayer('videotest4').stop();
-	jwplayer('videotest5').stop();
-	jwplayer('videotest6').stop();
 	e.preventDefault();
 });
 
@@ -192,9 +208,6 @@ $(".test2").bind("click touch", function(e){
 	$("#test1").hide();
 	$("#test2").show();
 	$("#test3").hide();
-	$("#test4").hide();
-	$("#test5").hide();
-	$("#test6").hide();
 		
 	jwplayer('videotest1').stop();
   jwplayer('videotest2').setup({
@@ -202,7 +215,7 @@ $(".test2").bind("click touch", function(e){
 	autostart: true,
     primary: "flash",   
 	controls: true,
-    width: 499, height: 281,
+    width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events: {
@@ -212,9 +225,6 @@ $('.test3').trigger('click');
 }
   });
 	jwplayer('videotest3').stop();
-	jwplayer('videotest4').stop();
-	jwplayer('videotest5').stop();
-	jwplayer('videotest6').stop();
 
 		e.preventDefault();
 });
@@ -223,9 +233,6 @@ $(".test3").bind("click touch", function(e){
 	$("#test1").hide();
 	$("#test2").hide();
 	$("#test3").show();
-	$("#test4").hide();
-	$("#test5").hide();
-	$("#test6").hide();
 	
 	jwplayer('videotest1').stop();
 	jwplayer('videotest2').stop();
@@ -234,107 +241,7 @@ $(".test3").bind("click touch", function(e){
 	autostart: true,
     primary: "flash",   
 	controls: true,
-    width: 499, height: 281,
-	stretching: 'exactfit',
-	skin: '/scripts/jwplayer/five.xml',
-	events: {
-onComplete: function() { 
-$('.test4').trigger('click');
-}
-}
-  });
-	jwplayer('videotest4').stop();
-	jwplayer('videotest5').stop();
-	jwplayer('videotest6').stop();
-
-		e.preventDefault();
-});
-
-$(".test4").bind("click touch", function(e){
-	$("#test1").hide();
-	$("#test2").hide();
-	$("#test3").hide();
-	$("#test4").show();
-	$("#test5").hide();
-	$("#test6").hide();
-		
-	jwplayer('videotest1').stop();
-	jwplayer('videotest2').stop();
-	jwplayer('videotest3').stop();
-	jwplayer('videotest5').stop();
-	jwplayer('videotest6').stop();
-
-  jwplayer('videotest4').setup({
-	file: '/content/video/theresa.mp4',
-	autostart: true,
-    primary: "flash",   
-	controls: true,
-    width: 499, height: 281,
-	stretching: 'exactfit',
-	skin: '/scripts/jwplayer/five.xml',
-	events: {
-onComplete: function() { 
-$('.test5').trigger('click');
-}
-}
-  });
-		
-		e.preventDefault();
-});
-
-$(".test5").bind("click touch", function(e){
-	$("#test1").hide();
-	$("#test2").hide();
-	$("#test3").hide();
-	$("#test4").hide();
-	$("#test5").show();
-	$("#test6").hide();
-		
-	jwplayer('videotest1').stop();
-	jwplayer('videotest2').stop();
-	jwplayer('videotest3').stop();
-	jwplayer('videotest4').stop();
-	jwplayer('videotest6').stop();
-
-  jwplayer('videotest5').setup({
-	file: '/content/video/jennifer.mp4',
-	autostart: true,
-    primary: "flash",   
-	controls: true,
-    width: 499, height: 281,
-	stretching: 'exactfit',
-	skin: '/scripts/jwplayer/five.xml',
-	events: {
-onComplete: function() { 
-$('.test6').trigger('click');
-}
-}
-  });
-		
-		e.preventDefault();
-});
-
-
-$(".test6").bind("click touch", function(e){
-	$("#test1").hide();
-	$("#test2").hide();
-	$("#test3").hide();
-	$("#test4").hide();
-	$("#test5").hide();
-	$("#test6").show();
-		
-	jwplayer('videotest1').stop();
-	jwplayer('videotest2').stop();
-	jwplayer('videotest3').stop();
-	jwplayer('videotest4').stop();
-	jwplayer('videotest5').stop();
-
-  jwplayer('videotest6').setup({
-	file: '/content/video/carly.mp4',
-	autostart: true,
-    primary: "flash",   
-	controls: true,
-    width: 499, height: 281,
+    width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events: {
@@ -343,7 +250,7 @@ $('.test1').trigger('click');
 }
 }
   });
-		
+
 		e.preventDefault();
 });
 
