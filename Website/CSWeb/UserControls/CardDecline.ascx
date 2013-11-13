@@ -4,19 +4,18 @@
 </asp:ScriptManager>
 <asp:UpdatePanel ID="upShippingForm" runat="server">
     <ContentTemplate>
-   
+   <div id="receipt_content"  style="margin: 0 auto; height: auto; width: 900px; position:relative;padding: 30px 60px;color: #000;">
     <p class="f18 red bold pad20">Sorry, but there was a problem with your credit card.</p>
-    <table width="819" border="0" cellspacing="0" cellpadding="0" id="receipt_table1">
-<tr><td class="horizontal_dots2" colspan="3"></td></tr>
-<tr>
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" id="receipt_table1">
+<tr class="horzline1">
 
-                <td width="76%" valign="top" style="padding-bottom: 20px">
-                    <strong>Description</strong>
+                <td valign="top" class="pad0 black">
+                   <strong>Product</strong>
                 </td>
-                <td width="12%" valign="top" align="center">
+                <td valign="top" class="pad0 text-center black">
                     <strong>Quantity</strong>
                 </td>
-                <td width="12%" valign="top">
+                <td valign="top" class="pad0 black">
                     <strong>Total</strong>
                 </td>
             </tr>
@@ -40,12 +39,11 @@
 
            
             <asp:Literal ID="LiteralTableRows" runat="server"></asp:Literal>
-            <tr><td class="horizontal_dots2" colspan="3"></td></tr>
-            <tr>
-                <td valign="top">&nbsp;
+           <tr class="horzline2">
+              <td valign="top">&nbsp;
                     
                 </td>
-                <td valign="top">
+                <td valign="top" class="black bold">
                     Subtotal:<br />
                     S &amp; H:
                     <br />
@@ -59,7 +57,7 @@
             </asp:Panel>
                     Total:
                 </td>
-                <td valign="top">
+                <td valign="top" class="black bold">
                     $<asp:Literal ID="LiteralSubTotal" runat="server"></asp:Literal><br />
                     $<asp:Literal ID="LiteralShipping" runat="server"></asp:Literal><br />
                     <asp:Panel ID="pnlRush" runat="server" Visible="false">
@@ -70,9 +68,8 @@
                 <asp:Label runat="server" ID="lblPromotionPrice"></asp:Label><br />
             </asp:Panel>
                     $<asp:Literal ID="LiteralTotal" runat="server"></asp:Literal>
-                </td>
+                 </td>
             </tr>
-            <tr><td class="horizontal_dots2" colspan="3"></td></tr>
         </table>
 
         <div class="cartB">
@@ -346,20 +343,13 @@
                     <asp:Label ID="lblCvvError" runat="server" Visible="false"></asp:Label></div>
                 <asp:TextBox ID="txtCvv" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox>
             </div>
-            <div class="form_line clearfix">
-                <label class="label-2">
-                    Send me new Product Updates
-                    <br />
-                    and Special Offers.</strong></label>
-                <input type="checkbox" checked="checked" class="checkbox-right" />
-            </div>
+
             <div class="form_line_btn">
-                <asp:ImageButton ID="imgBtn" runat="server" ImageUrl="/content/images/try_it_now_btn.png"
-                    CssClass="form_line_center" OnClick="imgBtn_OnClick" />
+                <asp:ImageButton ID="imgBtn" runat="server" ImageUrl="/content/images/ordernow_btn.jpg" OnClick="imgBtn_OnClick" />
             </div>
   
         </div>
-  
+   </div>
 
     </ContentTemplate>
 </asp:UpdatePanel>

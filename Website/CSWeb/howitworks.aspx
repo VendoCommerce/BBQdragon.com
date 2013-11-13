@@ -104,7 +104,7 @@
  <h2 style="margin-left: 20px;">Demonstration</h2>
    <div class="videosmall"> <div id="vidsmall1"></div> <script type='text/javascript'>
   jwplayer('vidsmall1').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/how1.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/howposter1.jpg",
@@ -123,7 +123,7 @@
 </script></div>
   <div class="videosmall"> <div id="vidsmall2"></div> <script type='text/javascript'>
   jwplayer('vidsmall2').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/how2.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/howposter2.jpg",
@@ -142,7 +142,7 @@
 </script></div>
    <div class="videosmall"> <div id="vidsmall3"></div> <script type='text/javascript'>
   jwplayer('vidsmall3').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/how3.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/howposter3.jpg",

@@ -35,34 +35,40 @@
 <div class="home1">
       <div class="video_list">
                   <ul id="thumb_list" class="thumb_list">
-                    <li><a href="javascript:void(0);" class="hometest1"><img src="Content/Images/thumb1.jpg" width="95" height="74" /></a></li>
-                     <li><a href="javascript:void(0);" class="hometest2"><img src="Content/Images/thumb2.jpg" /></a></li>
-                    <li><a href="javascript:void(0);" class="hometest3"><img src="Content/Images/thumb3.jpg" /></a></li>
+                    <li><a href="javascript:void(0);" class="hometest2"><img src="Content/Images/thumb1.png" /></a></li>
+                     <li><a href="javascript:void(0);" class="hometest3"><img src="Content/Images/thumb2.png" /></a></li>
+                    <li><a href="javascript:void(0);" class="hometest4"><img src="Content/Images/thumb3.png" /></a></li>
           </ul>
               </div>
               <div class="video_right">
           <div class="videocontainer">
   <div id="homet1">
-  <div id="hometest1"></div>
+  <div id="ctavideo"></div>
     <script type='text/javascript'>
-  jwplayer('hometest1').setup({
-	file: '/content/video/cory.mp4',
+  jwplayer('ctavideo').setup({
+	file: '/content/video/ctavideo.mp4',
 	autostart: true,
     primary: "flash",   
-	image: "/content/images/testimonialvideoposter.jpg",
+	image: "/content/images/ctaposter.jpg",
 	controls: true,
     width: 424, height: 239,
 	stretching: 'exactfit',
 	skin: '/scripts/jwplayer/five.xml',
 	events: {
 		onComplete: function() { 
-			$('.test2').trigger('click');
+			$('.hometest2').trigger('click');
 		},
 		
 	onPlay: function() {
-   	jwplayer('ctavideo').stop();	
+   	jwplayer('hometest4').stop();	
    	jwplayer('hometest2').stop();
    	jwplayer('hometest3').stop();
+   	jwplayer('vidsmall1').stop();
+   	jwplayer('vidsmall2').stop();
+   	jwplayer('vidsmall3').stop();
+   	jwplayer('vidsmall4').stop();
+   	jwplayer('vidsmall5').stop();
+   	jwplayer('vidsmall6').stop();
 	}
 	}
 	
@@ -73,13 +79,22 @@
   
   <div id="homet2" style="display:none">
   <div id="hometest2"></div>
+  <p class="text-center f13"><a href="javascript:void(0);" class="scored hometest1">Back to Commercial</a></p>
   </div>
   
   <div id="homet3" style="display:none">
   <div id="hometest3"></div>
+  <p class="text-center f13"><a href="javascript:void(0);" class="scored hometest1">Back to Commercial</a></p>
   </div>
 
-</div><div class="clear"></div></div>
+  <div id="homet4" style="display:none">
+  <div id="hometest4"></div>
+  <p class="text-center f13"><a href="javascript:void(0);" class="scored hometest1">Back to Commercial</a></p>
+  </div>
+</div><div class="clear"></div>
+
+
+</div>
 </div>
 
 
@@ -129,7 +144,7 @@
  <div class="home3">
   <div class="videosmall">  <div id="vidsmall1"></div> <script type='text/javascript'>
   jwplayer('vidsmall1').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test1.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test1.jpg",
@@ -139,21 +154,22 @@
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
 	onPlay: function() {
-   	jwplayer('videotest1').stop();	
-   	jwplayer('videotest2').stop();
-   	jwplayer('vidsmall2').stop();	
+   	jwplayer('hometest4').stop();	
+   	jwplayer('hometest2').stop();
+   	jwplayer('hometest3').stop();
+   	jwplayer('ctavideo').stop();
+   	jwplayer('vidsmall2').stop();
    	jwplayer('vidsmall3').stop();
-   	jwplayer('vidsmall4').stop();	
+   	jwplayer('vidsmall4').stop();
    	jwplayer('vidsmall5').stop();
    	jwplayer('vidsmall6').stop();
-	
 	}}
 	
   });
 </script></div>
   <div class="videosmall"> <div id="vidsmall2"></div> <script type='text/javascript'>
   jwplayer('vidsmall2').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test2.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test2.jpg",
@@ -163,11 +179,13 @@
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
 	onPlay: function() {
-   	jwplayer('videotest1').stop();	
-   	jwplayer('videotest2').stop();
-   	jwplayer('vidsmall1').stop();	
+   	jwplayer('hometest4').stop();	
+   	jwplayer('hometest2').stop();
+   	jwplayer('hometest3').stop();
+   	jwplayer('vidsmall1').stop();
+   	jwplayer('ctavideo').stop();
    	jwplayer('vidsmall3').stop();
-   	jwplayer('vidsmall4').stop();	
+   	jwplayer('vidsmall4').stop();
    	jwplayer('vidsmall5').stop();
    	jwplayer('vidsmall6').stop();
 	
@@ -177,7 +195,7 @@
 </script></div>
    <div class="videosmall"> <div id="vidsmall3"></div> <script type='text/javascript'>
   jwplayer('vidsmall3').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test3.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test3.jpg",
@@ -187,11 +205,13 @@
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
 	onPlay: function() {
-   	jwplayer('videotest1').stop();	
-   	jwplayer('videotest2').stop();
-   	jwplayer('vidsmall2').stop();	
+   	jwplayer('hometest4').stop();	
+   	jwplayer('hometest2').stop();
+   	jwplayer('hometest3').stop();
    	jwplayer('vidsmall1').stop();
-   	jwplayer('vidsmall4').stop();	
+   	jwplayer('vidsmall2').stop();
+   	jwplayer('ctavideo').stop();
+   	jwplayer('vidsmall4').stop();
    	jwplayer('vidsmall5').stop();
    	jwplayer('vidsmall6').stop();
 	
@@ -202,7 +222,7 @@
    <div class="clear"></div>
     <div class="videosmall"> <div id="vidsmall4"></div> <script type='text/javascript'>
   jwplayer('vidsmall4').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test4.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test4.jpg",
@@ -212,11 +232,13 @@
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
 	onPlay: function() {
-   	jwplayer('videotest1').stop();	
-   	jwplayer('videotest2').stop();
-   	jwplayer('vidsmall2').stop();	
+   	jwplayer('hometest4').stop();	
+   	jwplayer('hometest2').stop();
+   	jwplayer('hometest3').stop();
+   	jwplayer('vidsmall1').stop();
+   	jwplayer('vidsmall2').stop();
    	jwplayer('vidsmall3').stop();
-   	jwplayer('vidsmall1').stop();	
+   	jwplayer('ctavideo').stop();
    	jwplayer('vidsmall5').stop();
    	jwplayer('vidsmall6').stop();
 	
@@ -226,7 +248,7 @@
 </script></div>
   <div class="videosmall"> <div id="vidsmall5"></div> <script type='text/javascript'>
   jwplayer('vidsmall5').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test5.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test5.jpg",
@@ -236,12 +258,14 @@
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
 	onPlay: function() {
-   	jwplayer('videotest1').stop();	
-   	jwplayer('videotest2').stop();
-   	jwplayer('vidsmall2').stop();	
-   	jwplayer('vidsmall3').stop();
-   	jwplayer('vidsmall4').stop();	
+   	jwplayer('hometest4').stop();	
+   	jwplayer('hometest2').stop();
+   	jwplayer('hometest3').stop();
    	jwplayer('vidsmall1').stop();
+   	jwplayer('vidsmall2').stop();
+   	jwplayer('vidsmall3').stop();
+   	jwplayer('vidsmall4').stop();
+   	jwplayer('ctavideo').stop();
    	jwplayer('vidsmall6').stop();
 	
 	}}
@@ -250,7 +274,7 @@
 </script></div>
    <div class="videosmall"> <div id="vidsmall6"></div> <script type='text/javascript'>
   jwplayer('vidsmall6').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test6.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test6.jpg",
@@ -260,13 +284,15 @@
 	skin: '/scripts/jwplayer/five.xml',
 	events:{
 	onPlay: function() {
-   	jwplayer('videotest1').stop();	
-   	jwplayer('videotest2').stop();
-   	jwplayer('vidsmall2').stop();	
-   	jwplayer('vidsmall3').stop();
-   	jwplayer('vidsmall4').stop();	
-   	jwplayer('vidsmall5').stop();
+   	jwplayer('hometest4').stop();	
+   	jwplayer('hometest2').stop();
+   	jwplayer('hometest3').stop();
    	jwplayer('vidsmall1').stop();
+   	jwplayer('vidsmall2').stop();
+   	jwplayer('vidsmall3').stop();
+   	jwplayer('vidsmall4').stop();
+   	jwplayer('vidsmall5').stop();
+   	jwplayer('ctavideo').stop();
 	
 	}}
 	

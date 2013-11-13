@@ -31,21 +31,21 @@
 <div style="margin: 0 auto 30px; display: inline-block;">
       <div class="video_list">
                   <ul id="thumb_list" class="thumb_list">
-                    <li><a href="javascript:void(0);" class="test1"><img src="Content/Images/test_thumb1.jpg" width="95" height="74" /></a></li>
-                     <li><a href="javascript:void(0);" class="test2"><img src="Content/Images/test_thumb2.jpg" /></a></li>
-                    <li><a href="javascript:void(0);" class="test3"><img src="Content/Images/test_thumb3.jpg" /></a></li>
+                    <li><a href="javascript:void(0);" class="test1"><img src="Content/Images/thumb1.png" /></a></li>
+                     <li><a href="javascript:void(0);" class="test2"><img src="Content/Images/thumb2.png" /></a></li>
+                    <li><a href="javascript:void(0);" class="test3"><img src="Content/Images/thumb3.png" /></a></li>
           </ul>
               </div>
               <div class="video_right">
-          <div class="videocontainer blueborder">
+          <div class="videocontainer">
   <div id="test1">
   <div id="videotest1"></div>
     <script type='text/javascript'>
   jwplayer('videotest1').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/home1.mp4',
 	autostart: true,
     primary: "flash",   
-	image: "/content/images/testimonialvideoposter.jpg",
+	image: "/content/images/homeposter1.jpg",
 	controls: true,
     width: 424, height: 239,
 	stretching: 'exactfit',
@@ -53,7 +53,17 @@
 	events: {
 		onComplete: function() { 
 			$('.test2').trigger('click');
-		}
+		},
+	onPlay: function() {
+   	jwplayer('videotest2').stop();	
+   	jwplayer('videotest3').stop();
+   	jwplayer('vidsmall1').stop();
+   	jwplayer('vidsmall2').stop();
+   	jwplayer('vidsmall3').stop();
+   	jwplayer('vidsmall4').stop();
+   	jwplayer('vidsmall5').stop();
+   	jwplayer('vidsmall6').stop();
+	}
 	}
 	
   });
@@ -93,7 +103,7 @@ of the century!</p>
  <div>
  <div class="videosmall">  <div id="vidsmall1"></div> <script type='text/javascript'>
   jwplayer('vidsmall1').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test1.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test1.jpg",
@@ -105,6 +115,7 @@ of the century!</p>
 	onPlay: function() {
    	jwplayer('videotest1').stop();	
    	jwplayer('videotest2').stop();
+   	jwplayer('videotest3').stop();
    	jwplayer('vidsmall2').stop();	
    	jwplayer('vidsmall3').stop();
    	jwplayer('vidsmall4').stop();	
@@ -117,7 +128,7 @@ of the century!</p>
 </script></div>
   <div class="videosmall"> <div id="vidsmall2"></div> <script type='text/javascript'>
   jwplayer('vidsmall2').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test2.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test2.jpg",
@@ -129,6 +140,7 @@ of the century!</p>
 	onPlay: function() {
    	jwplayer('videotest1').stop();	
    	jwplayer('videotest2').stop();
+   	jwplayer('videotest3').stop();
    	jwplayer('vidsmall1').stop();	
    	jwplayer('vidsmall3').stop();
    	jwplayer('vidsmall4').stop();	
@@ -141,7 +153,7 @@ of the century!</p>
 </script></div>
    <div class="videosmall"> <div id="vidsmall3"></div> <script type='text/javascript'>
   jwplayer('vidsmall3').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test3.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test3.jpg",
@@ -153,6 +165,7 @@ of the century!</p>
 	onPlay: function() {
    	jwplayer('videotest1').stop();	
    	jwplayer('videotest2').stop();
+   	jwplayer('videotest3').stop();
    	jwplayer('vidsmall2').stop();	
    	jwplayer('vidsmall1').stop();
    	jwplayer('vidsmall4').stop();	
@@ -181,7 +194,7 @@ It's phenomenal. You can add this thing to anything – not just your grill but 
    <div class="clear"></div>
   <div class="videosmall"> <div id="vidsmall4"></div> <script type='text/javascript'>
   jwplayer('vidsmall4').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test4.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test4.jpg",
@@ -193,6 +206,7 @@ It's phenomenal. You can add this thing to anything – not just your grill but 
 	onPlay: function() {
    	jwplayer('videotest1').stop();	
    	jwplayer('videotest2').stop();
+   	jwplayer('videotest3').stop();
    	jwplayer('vidsmall2').stop();	
    	jwplayer('vidsmall3').stop();
    	jwplayer('vidsmall1').stop();	
@@ -205,7 +219,7 @@ It's phenomenal. You can add this thing to anything – not just your grill but 
 </script></div>
   <div class="videosmall"> <div id="vidsmall5"></div> <script type='text/javascript'>
   jwplayer('vidsmall5').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test5.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test5.jpg",
@@ -217,6 +231,7 @@ It's phenomenal. You can add this thing to anything – not just your grill but 
 	onPlay: function() {
    	jwplayer('videotest1').stop();	
    	jwplayer('videotest2').stop();
+   	jwplayer('videotest3').stop();
    	jwplayer('vidsmall2').stop();	
    	jwplayer('vidsmall3').stop();
    	jwplayer('vidsmall4').stop();	
@@ -229,7 +244,7 @@ It's phenomenal. You can add this thing to anything – not just your grill but 
 </script></div>
    <div class="videosmall"> <div id="vidsmall6"></div> <script type='text/javascript'>
   jwplayer('vidsmall6').setup({
-	file: '/content/video/cory.mp4',
+	file: '/content/video/test6.mp4',
 	autostart: false,
     primary: "flash",   
 	image: "/content/images/home_test6.jpg",
@@ -241,6 +256,7 @@ It's phenomenal. You can add this thing to anything – not just your grill but 
 	onPlay: function() {
    	jwplayer('videotest1').stop();	
    	jwplayer('videotest2').stop();
+   	jwplayer('videotest3').stop();
    	jwplayer('vidsmall2').stop();	
    	jwplayer('vidsmall3').stop();
    	jwplayer('vidsmall4').stop();	

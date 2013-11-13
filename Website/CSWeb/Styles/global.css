@@ -909,3 +909,17 @@ width: 300px;
 #guarantee p {
 	line-height: 20px;	
 }
+
+.fancybox-skin {
+  background: #fff;
+}
+
+#warranty {
+	background: #fff;
+}
+
+#warranty p {
+	line-height: 18px;
+	font-size: 11px;	
+	padding-bottom: 20px;
+}
