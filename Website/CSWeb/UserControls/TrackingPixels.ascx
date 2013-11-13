@@ -7,9 +7,12 @@
 
 <asp:Panel ID="pnlAllPages" runat="server" Visible="false">
     <script type="text/javascript">
-
+        var newPageName = '/' +
+    <%=versionNameClientFunction %> + window.location.pathname +
+    window.location.search;
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-40260485-1']);
+  _gaq.push(['_set', 'page', newPageName]);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -25,7 +28,7 @@
 <script type="text/javascript" async>//<![CDATA[
 var wa_pageName=location.pathname;    // customize the page name here;
 wa_account="9D9D8E9B8D9E989091"; wa_location=102;
-wa_MultivariateKey = '';    //  Set this variable to perform multivariate testing
+wa_MultivariateKey = <%=versionNameClientFunction %>;    //  Set this variable to perform multivariate testing
 var wa_c=new RegExp('__wa_v=([^;]+)').exec(document.cookie),wa_tz=new Date(),
 wa_rf=document.referrer,wa_sr=location.search,wa_hp='http'+(location.protocol=='https:'?'s':'');
 if(top!==self){wa_rf=top.document.referrer;wa_sr=top.location.search}
