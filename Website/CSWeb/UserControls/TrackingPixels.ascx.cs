@@ -62,7 +62,7 @@ namespace CSWeb.Root.UserControls
 
 
 
-            litGAReceiptPixel.Text = litGAReceiptPixel2.Text = sbGAPixel.ToString();
+            litGAReceiptPixel.Text = sbGAPixel.ToString();
         }
 
 
@@ -155,7 +155,7 @@ namespace CSWeb.Root.UserControls
             {
                 SetCurrentOrder();
                 WriteGAPixel();
-                MDGConfirmPixel();
+                //MDGConfirmPixel();
                 string[] testCreditCards;
 
                 testCreditCards = ResourceHelper.GetResoureValue("TestCreditCard").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries); ;

@@ -17,7 +17,7 @@ namespace CSWeb.Mobile.UserControls
         public Order CurrentOrder = null;
         public string versionName = "";
         public string versionNameReferrer = "";
-        public string versionNameClientFunction = ""; 
+        public string versionNameClientFunction = "";
         public decimal cartTotal = 0;
         private ClientCartContext CartContext
         {
@@ -62,7 +62,7 @@ namespace CSWeb.Mobile.UserControls
 
 
 
-            litGAReceiptPixel.Text = litGAReceiptPixel2.Text = sbGAPixel.ToString();
+            litGAReceiptPixel.Text = sbGAPixel.ToString();
         }
 
 
@@ -155,7 +155,7 @@ namespace CSWeb.Mobile.UserControls
             {
                 SetCurrentOrder();
                 WriteGAPixel();
-                MDGConfirmPixel();
+                //MDGConfirmPixel();
                 string[] testCreditCards;
 
                 testCreditCards = ResourceHelper.GetResoureValue("TestCreditCard").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries); ;
@@ -171,8 +171,8 @@ namespace CSWeb.Mobile.UserControls
                         pnlReceiptPage.Visible = true;
                     }
                 }
-                //SetConversionListrakPixel();
-                //SetTotalsForAdwardsAndBing();
+                SetConversionListrakPixel();
+                SetTotalsForAdwardsAndBing();
                 //reset entire Context object
                 //this.CartContext.EmptyData();
                 //CartContext = null;
