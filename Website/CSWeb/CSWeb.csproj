@@ -387,6 +387,7 @@
     <Content Include="Content\Video\test4.mp4" />
     <Content Include="Content\Video\test5.mp4" />
     <Content Include="Content\Video\test6.mp4" />
+    <Content Include="faq.aspx" />
     <Content Include="footer.html" />
     <Content Include="footer_cart.html" />
     <Content Include="footer_upsell.html" />
