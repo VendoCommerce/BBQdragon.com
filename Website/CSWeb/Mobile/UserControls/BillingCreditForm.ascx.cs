@@ -682,6 +682,7 @@ namespace CSWeb.Mobile.UserControls
         {
             if (!validateInput())
             {
+                UpdateAdditionalBBQKit();
                 SaveData();
             }
 
@@ -689,23 +690,27 @@ namespace CSWeb.Mobile.UserControls
 
         
 
-        protected void ddlQty_SelectedIndexChanged(object sender, EventArgs e)
+        public void UpdateAdditionalBBQKit()
         {
             int qty = 1;
             int additionalSku = 106; // update this to be sku attribute.
-            qty = Convert.ToInt32(ddlQty.SelectedValue.ToString());            
-            if (qty == 1)
+            Sku skuItem = CartContext.CartInfo.CartItems.Find(x => x.SkuId == 102);
+            if (skuItem != null)
             {
-                CartContext.CartInfo.SkuExists(additionalSku);
-                CartContext.CartInfo.RemoveSku(additionalSku);
+                qty = Convert.ToInt32(skuItem.Quantity.ToString());
+                if (qty == 1)
+                {
+                    CartContext.CartInfo.SkuExists(additionalSku);
+                    CartContext.CartInfo.RemoveSku(additionalSku);
+                }
+                else if (qty > 1)
+                {
+                    CartContext.CartInfo.AddOrUpdate(additionalSku, qty - 1, true, false, false);
+                    CartContext.CartInfo.Compute();
+                }
+                Session["ClientOrderData"] = CartContext;
+                ShoppingCartControl1.BindControls();
             }
-            else if (qty > 1)
-            {
-                CartContext.CartInfo.AddOrUpdate(additionalSku, qty - 1, true, false, false);
-                CartContext.CartInfo.Compute();                
-            }
-            Session["ClientOrderData"] = CartContext;
-            ShoppingCartControl1.BindControls();
         }
         #endregion General Methods
     }

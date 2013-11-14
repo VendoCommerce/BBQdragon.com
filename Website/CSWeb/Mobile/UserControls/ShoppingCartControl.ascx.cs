@@ -102,6 +102,7 @@ namespace CSWeb.Mobile.UserControls
 				Label lblSkuCode = e.Item.FindControl("lblSkuCode") as Label;
                 Label lblSkuDescription = e.Item.FindControl("lblSkuDescription") as Label;
 				TextBox txtQuantity = e.Item.FindControl("txtQuantity") as TextBox;
+                DropDownList ddlQty = e.Item.FindControl("ddlQty") as DropDownList;
                 Label lblQuantity = e.Item.FindControl("lblQuantity") as Label;
                 Label lblSkuInitialPrice = e.Item.FindControl("lblSkuInitialPrice") as Label;
 				ImageButton btnRemoveItem = e.Item.FindControl("btnRemoveItem") as ImageButton;
@@ -113,6 +114,7 @@ namespace CSWeb.Mobile.UserControls
 				
                 lblSkuDescription.Text = cartItem.ShortDescription;
 				lblQuantity.Text = txtQuantity.Text = cartItem.Quantity.ToString();
+                ddlQty.Items.FindByValue(cartItem.Quantity.ToString()).Selected = true;
                 lblSkuInitialPrice.Text = String.Format("${0:0.##}", cartItem.InitialPrice);
                 if (cartItem.ImagePath.Length > 0)
                 {
@@ -213,6 +215,22 @@ namespace CSWeb.Mobile.UserControls
 			if(UpdateCart != null)
 				UpdateCart(sender, e);
 		}
+        protected void ddlQty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList txtQuantity = (DropDownList)sender;
+            RepeaterItem item = (RepeaterItem)txtQuantity.NamingContainer;
+            ImageButton btnRemoveItem = item.FindControl("btnRemoveItem") as ImageButton;
+
+            int skuID = Convert.ToInt32(btnRemoveItem.CommandArgument);
+            Sku cartItem = CartContext.CartInfo.CartItems.FirstOrDefault(c => c.SkuId == skuID);
+            int newQuantity = 0;
+            if (int.TryParse(txtQuantity.Text, out newQuantity))
+                cartItem.Quantity = newQuantity;
+            CartContext.CartInfo.Compute();
+            BindControls();
+            if (UpdateCart != null)
+                UpdateCart(sender, e);
+        }
     }
 
     public enum ShoppingCartDisplayTotalMode

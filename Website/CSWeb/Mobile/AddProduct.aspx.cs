@@ -86,12 +86,7 @@ namespace CSWeb.Mobile.Store
                         cartObject.ShowQuantity = false;
                         clientData.CartInfo = cartObject;
                         Session["ClientOrderData"] = clientData;
-                        if (Request["page"] != null && Request["page"].ToString().ToLower().Equals("onepay"))
-                        {
-                            Response.Redirect("cart1.aspx");
-                        }
-                        else
-                            Response.Redirect("cart.aspx");
+                        Response.Redirect("cart1.aspx");
                     }
 
                     else

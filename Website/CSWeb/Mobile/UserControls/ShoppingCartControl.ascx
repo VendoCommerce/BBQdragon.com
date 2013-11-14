@@ -6,13 +6,13 @@
     <HeaderTemplate> <div class="cart_table clearfix">
                  <div class="cart_image">Item
                  </div>
-                  <div class="cart_text">&nbsp;
-                  </div>
+           
                      <div class="cart_select">Quantity
                      </div>
                         <div class="product_price">Price
                         </div>
-                        </div>   <div class="horizontal_dots">
+                        </div>   
+                        <div class="horizontal_dots">
         </div>
     </HeaderTemplate>
     <ItemTemplate>
@@ -22,17 +22,17 @@
             <div class="cart_image">
                 <asp:Image runat="server" ID="imgProduct" />
             </div>
-            <div class="cart_text">
-                <p class="basket_title">
-                    <asp:Label runat="server" ID="lblSkuCode"></asp:Label></p>
-                <p class="basket_description">
-                    <asp:Label runat="server" ID='lblSkuDescription'></asp:Label></p>
-            </div>
+
             <div class="cart_select">
-           
-                <asp:TextBox runat="server" ID="txtQuantity" MaxLength="3"
+           <asp:DropDownList ID="ddlQty" runat="server" CssClass="text-4" AutoPostBack="true"
+                        onselectedindexchanged="ddlQty_SelectedIndexChanged">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>                    
+                    </asp:DropDownList>
+                <asp:TextBox runat="server" ID="txtQuantity" MaxLength="3" Visible="false"
                     Columns="2" OnTextChanged="OnTextChanged_Changed"></asp:TextBox>
-                <asp:Label runat="server" ID="lblQuantity" CssClass="cart_select">
+                <asp:Label runat="server" ID="lblQuantity" CssClass="cart_select" Visible="false">
                 </asp:Label>
               </div>
             <div class="product_price">
@@ -43,6 +43,12 @@
                 </td>
             </div>
         </div>
+            <div class="cart_text">
+                <p class="basket_title">
+                    <asp:Label runat="server" ID="lblSkuCode"></asp:Label></p>
+                <p class="basket_description">
+                    <asp:Label runat="server" ID='lblSkuDescription'></asp:Label></p>
+            </div>
     </ItemTemplate>
 </asp:Repeater>
 <asp:Panel ID="pnlTotal" runat="server">
@@ -51,7 +57,7 @@
         </div>
         <div class="cart_totals clearfix">
             <div class="cart_totals_left">
-                Subtotal<br />
+                Subtotal:<br />
                 S&amp;H:<br />
                 Tax:
                 <br />
