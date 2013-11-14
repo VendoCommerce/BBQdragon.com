@@ -522,6 +522,30 @@ namespace CSWeb.Mobile.UserControls
 
             }
 
+            if ((c[0].ToString() == "5") && (ddlCCType.SelectedItem.Text.ToString() != CreditCardTypeEnum.MasterCard.ToString()))
+            {
+                ddlCCType.SelectedValue = ((int)CreditCardTypeEnum.MasterCard).ToString();
+            }
+            else if ((c[0].ToString() == "4") && (ddlCCType.SelectedItem.Text.ToString() != CreditCardTypeEnum.VISA.ToString()))
+            {
+
+                ddlCCType.SelectedValue = ((int)CreditCardTypeEnum.VISA).ToString();
+            }
+            else if ((c[0].ToString() == "6") && (ddlCCType.SelectedItem.Text.ToString() != CreditCardTypeEnum.Discover.ToString()))
+            {
+
+                ddlCCType.SelectedValue = ((int)CreditCardTypeEnum.Discover).ToString();
+            }
+            else if ((c[0].ToString() == "3") && (ddlCCType.SelectedItem.Text.ToString() != CreditCardTypeEnum.AmericanExpress.ToString()))
+            {
+
+                ddlCCType.SelectedValue = ((int)CreditCardTypeEnum.AmericanExpress).ToString();
+            }
+            else
+            {
+
+            }
+
             SitePreference sitePrefCache = CSFactory.GetCacheSitePref();
 
             if (!sitePrefCache.AttributeValuesLoaded)
