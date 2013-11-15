@@ -46,10 +46,12 @@ namespace CSWeb.Root.Store
                 // this means that  customer clicked back, so should be directed to receipt page.
                 Response.Redirect("receipt.aspx");
             }
-
-            if (OrderHelper.IsCustomerOrderFlowCompleted(CartContext.OrderId))
+            if (Request["oid"] == null)
             {
-                Response.Redirect("receipt.aspx");
+                if (OrderHelper.IsCustomerOrderFlowCompleted(CartContext.OrderId))
+                {
+                    Response.Redirect("receipt.aspx");
+                }
             }
 
             if (!IsPostBack)
