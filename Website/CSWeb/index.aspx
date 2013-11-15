@@ -345,9 +345,9 @@
  <div class="testblock graybg"><p>"Start it up and watch as your pile of normally slow-to-be-ready charcoal gets to optimal temperature in as little as 10 minutes.”</p><div class="blockauthor">- Oh Gizmo</div></div>
  <div class="testblock orangebg" style="cursor: pointer" onclick="location.href='AddProduct.aspx?PId=102&CId=2&page=onePay'"><p>BBQ Dragon
 The Fire Supercharger<br>
-Never before has there been a product that substantially improves America’s most popular past time: barbecue.<br>
+<span class="webfont1">Never before has there been a product that substantially improves America’s most popular past time: barbecue.<br>
 <br>
-<span class="white webfont2 scored">Try it Now!</span></div>
+<span class="white webfont1 scored">Try it Now!</span></span></div>
    <div class="clear"></div> 
    
    </div>

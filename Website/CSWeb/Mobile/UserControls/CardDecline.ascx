@@ -4,18 +4,25 @@
 </asp:ScriptManager>
 <asp:UpdatePanel ID="upShippingForm" runat="server">
     <ContentTemplate>
-   <div id="receipt_content"  style="margin: 0 auto; height: auto; width: 900px; position:relative;padding: 30px 60px;color: #000;">
-    <p class="f18 red bold pad20">Sorry, but there was a problem with your credit card.</p>
-   <table width="100%" border="0" cellspacing="0" cellpadding="0" id="receipt_table1">
-<tr class="horzline1">
 
-                <td valign="top" class="pad0 black">
-                   <strong>Product</strong>
+<style>
+body {
+	font-size: 24px;	
+}
+</style>
+    <div class="content" style="padding-top: 20px;">
+    <p style="color: red">Sorry your card was declined.  Please see below.</p>
+    <table width="600" border="0" cellspacing="0" cellpadding="0" id="receipt_table1" style="margin: 0 auto 40px;">
+<tr><td class="horizontal_dots2" colspan="3"></td></tr>
+<tr>
+
+                <td width="76%" valign="top" style="padding-bottom: 20px">
+                    <strong>Description</strong>
                 </td>
-                <td valign="top" class="pad0 text-center black">
+                <td width="12%" valign="top" align="center">
                     <strong>Quantity</strong>
                 </td>
-                <td valign="top" class="pad0 black">
+                <td width="12%" valign="top">
                     <strong>Total</strong>
                 </td>
             </tr>
@@ -39,11 +46,12 @@
 
            
             <asp:Literal ID="LiteralTableRows" runat="server"></asp:Literal>
-           <tr class="horzline2">
-              <td valign="top">&nbsp;
+            <tr><td class="horizontal_dots2" colspan="3"></td></tr>
+            <tr>
+                <td valign="top">&nbsp;
                     
                 </td>
-                <td valign="top" class="black bold">
+                <td valign="top">
                     Subtotal:<br />
                     S &amp; H:
                     <br />
@@ -57,7 +65,7 @@
             </asp:Panel>
                     Total:
                 </td>
-                <td valign="top" class="black bold">
+                <td valign="top">
                     $<asp:Literal ID="LiteralSubTotal" runat="server"></asp:Literal><br />
                     $<asp:Literal ID="LiteralShipping" runat="server"></asp:Literal><br />
                     <asp:Panel ID="pnlRush" runat="server" Visible="false">
@@ -68,11 +76,12 @@
                 <asp:Label runat="server" ID="lblPromotionPrice"></asp:Label><br />
             </asp:Panel>
                     $<asp:Literal ID="LiteralTotal" runat="server"></asp:Literal>
-                 </td>
+                </td>
             </tr>
+            <tr><td class="horizontal_dots2" colspan="3"></td></tr>
         </table>
 
-        <div class="cartB">
+        <div class="cart_mobile">
         <div class="form_line clearfix">
     <div class="error-2">
         <asp:Label ID="Label2" ForeColor="Red" runat="server" Text="" Visible="false"></asp:Label></div>
@@ -148,7 +157,7 @@
                     <asp:Label ID="lblShippingStateError" runat="server" Visible="false"></asp:Label></div>
                 <label class="label-1">
                     State*</label>
-                <asp:DropDownList ID="ddlShippingState" runat="server" DataTextField="NAME" CssClass="text-1"
+                <asp:DropDownList ID="ddlShippingState" runat="server" DataTextField="Abbreviation" CssClass="text-1"
                     size="1">
                 </asp:DropDownList>
             </div>
@@ -180,17 +189,7 @@
                     Email*</label>
                 <asp:TextBox ID="txtEmail" runat="server" MaxLength="30" CssClass="text-1"></asp:TextBox>
             </div>
-                <div class="form_line clearfix">
-                    <div class="error-1">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic"
-                            ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
-                        <asp:Label ID="Label1" runat="server" Visible="false">
-                        </asp:Label>
-                    </div>
-                    <label class="label-1">
-                        First Name*</label>
-                    <asp:TextBox ID="TextBox1" runat="server" MaxLength="14" CssClass="text-1"></asp:TextBox>
-                </div>
+                
                          
         </asp:Panel>
         <div class="form_line clearfix">
@@ -267,7 +266,7 @@
                         <asp:Label ID="lblStateError" runat="server" Visible="false"></asp:Label></div>
                     <label class="label-1">
                         State*</label>
-                    <asp:DropDownList ID="ddlState" runat="server" DataTextField="NAME" CssClass="text-1" size="1">
+                    <asp:DropDownList ID="ddlState" runat="server" DataTextField="Abbreviation" CssClass="text-1" size="1">
                     </asp:DropDownList>
                 </div>
                 <div class="form_line clearfix">
@@ -332,24 +331,27 @@
                     Card Number*</label>
                 <div class="error-2">
                     <asp:Label ID="lblCCNumberError" runat="server" Visible="false"></asp:Label></div>
-               <asp:TextBox ID="txtCCNumber1" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtCCNumber1" runat="server" Display="Dynamic" ErrorMessage="*" /><asp:TextBox ID="txtCCNumber2" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtCCNumber2" runat="server" Display="Dynamic" ErrorMessage="*" /><asp:TextBox ID="txtCCNumber3" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtCCNumber3" runat="server" Display="Dynamic" ErrorMessage="*" /><asp:TextBox ID="txtCCNumber4" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtCCNumber4" runat="server" Display="Dynamic" ErrorMessage="*" />
+               <asp:TextBox ID="txtCCNumber1" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtCCNumber1" runat="server" Display="Dynamic" ErrorMessage="*" />
+               <asp:TextBox ID="txtCCNumber2" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtCCNumber2" runat="server" Display="Dynamic" ErrorMessage="*" />
+               <asp:TextBox ID="txtCCNumber3" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtCCNumber3" runat="server" Display="Dynamic" ErrorMessage="*" />
+               <asp:TextBox ID="txtCCNumber4" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtCCNumber4" runat="server" Display="Dynamic" ErrorMessage="*" />
             </div>
             <div class="form_line clearfix">
                 <label class="label-3">
-                    Card Verification #* 
+                    Card Verification #* <a class="cvv" href="#" style="display:none">what's this?</a>
                 </label>
                 <div class="error-2">
                     <asp:RequiredFieldValidator ID="rfvCVV" ControlToValidate="txtCvv" runat="server" Display="Dynamic" />
                     <asp:Label ID="lblCvvError" runat="server" Visible="false"></asp:Label></div>
                 <asp:TextBox ID="txtCvv" runat="server" CssClass="text-4" MaxLength="4"></asp:TextBox>
             </div>
-
+         
             <div class="form_line_btn">
-                <asp:ImageButton ID="imgBtn" runat="server" ImageUrl="/Content/images/ordernow_btn.jpg" OnClick="imgBtn_OnClick" />
+                <asp:ImageButton ID="imgBtn" runat="server" ImageUrl="/content/images/mobile/completeorder_btn.jpg" OnClick="imgBtn_OnClick" />
             </div>
-  
+           
         </div>
-   </div>
+</div> 
 
     </ContentTemplate>
 </asp:UpdatePanel>

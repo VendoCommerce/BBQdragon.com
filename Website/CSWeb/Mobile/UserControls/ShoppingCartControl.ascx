@@ -34,12 +34,14 @@
                     Columns="2" OnTextChanged="OnTextChanged_Changed"></asp:TextBox>
                 <asp:Label runat="server" ID="lblQuantity" CssClass="cart_select" Visible="false">
                 </asp:Label>
+<div style="margin-left: -60px; padding-top: 10px;"><img src="/Content/Images/mobile/freeshipcall.jpg" width="269" height="129" />
+     </div>            
               </div>
             <div class="product_price">
                 <asp:Label runat="server" ID="lblSkuInitialPrice"></asp:Label>
                 <td runat="server" width="1%" id='holderRemove' visible="false">
                     <asp:ImageButton ID="btnRemoveItem" runat="server" CommandName="delete" CausesValidation="false"
-                        Visible="" CssClass="ucRemoveButtonOverlay" ImageUrl="/Content/images/delete.gif" />
+                        Visible="false" CssClass="ucRemoveButtonOverlay" ImageUrl="/Content/images/delete.gif" />
                 </td>
             </div>
         </div>
