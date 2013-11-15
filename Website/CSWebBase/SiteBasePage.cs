@@ -41,11 +41,27 @@ namespace CSWebBase
             AbTestingVersionUpdate updateVersionInfo = new AbTestingVersionUpdate();
             updateVersionInfo.LoadScripts(Page);
             updateVersionInfo.UpdateVersionNameWhileAbTesting();
+            DoDeviceRedirect();
+            if (!Page.IsPostBack)
+                DoDeviceRedirect();
         }
 
         public static void SendErrorEmail(string message)
         {
             CSCore.EmailHelper.SendEmail("info@conversionsystems.com", AdminEmail, "[SiteName.Com Error]", message, false);
+        }
+        private void DoDeviceRedirect()
+        {
+            if (!Page.IsPostBack)
+            {
+                if (ClientDeviceType == CSBusiness.Enum.DeviceType.Mobile)
+                {
+                    if (Request.QueryString.Count > 0)
+                        Response.Redirect("/MOBILE" + Request.QueryString, true);
+                    else
+                        Response.Redirect("/MOBILE", true);
+                }
+            }
         }
     }
 
