@@ -26,7 +26,7 @@
 
 <div class="cart_mobile">
         
-    <div><img src="/Content/Images/paymentinfo.jpg" class="block" style="margin-bottom: 20px"/></div>
+    
       
                 
                 <img src="/Content/Images/mobile/paymentinfo.jpg" width="640" height="135" style="margin-left: -23px" />

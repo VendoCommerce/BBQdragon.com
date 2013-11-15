@@ -32,8 +32,9 @@ namespace CSWeb
         public static bool AuthorizeOrder(int orderID)
         {
             Request _request = new Request();
+            string LitleResp = "", LitleRequest = "";
 
-            Order orderData = CSResolve.Resolve<IOrderService>().GetOrderDetails(orderID, true);           
+            Order orderData = CSResolve.Resolve<IOrderService>().GetOrderDetails(orderID, true);
 
             _request.CardNumber = orderData.CreditInfo.CreditCardNumber;
             _request.CardCvv = orderData.CreditInfo.CreditCardCSC;
@@ -50,27 +51,81 @@ namespace CSWeb
             _request.TransactionDescription = orderData.CustomerInfo.BillingAddress.FirstName + " " + orderData.CustomerInfo.BillingAddress.LastName;
             _request.CustomerID = orderData.CustomerId.ToString();
             _request.InvoiceNumber = orderData.OrderId.ToString();
-
-            //Read information from web.config
-            //Response _response =   GatewayProvider.Instance("PaymentProvider").PerformRequest(_request);
-
-            //Read information from client DB setting
-            Response _response = PaymentProviderRepository.Instance.Get().PerformRequest(_request);
-
-
-            if (_response != null && _response.ResponseType != TransactionResponseType.Approved)
+            if (orderData.CreditInfo.CreditCardName.ToString().ToLower().Contains("visa"))
             {
-                CSResolve.Resolve<IOrderService>().SaveOrder(orderData.OrderId, _response.TransactionID, _response.AuthCode, 7);
-
-                return false;
+                _request.CardType = CreditCardType.Visa;
             }
-            else if (_response != null && _response.ResponseType == TransactionResponseType.Approved)
+            else if (orderData.CreditInfo.CreditCardName.ToString().ToLower().Contains("mastercard"))
             {
-                CSResolve.Resolve<IOrderService>().SaveOrder(orderData.OrderId, _response.TransactionID, _response.AuthCode, 4);
+                _request.CardType = CreditCardType.Mastercard;
+            }
+            else if (orderData.CreditInfo.CreditCardName.ToString().ToLower().Contains("discover"))
+            {
+                _request.CardType = CreditCardType.Discover;
+            }
+            else if (orderData.CreditInfo.CreditCardName.ToString().ToLower().Contains("americanexpress"))
+            {
+                _request.CardType = CreditCardType.AmericanExpress;
+            }
+
+            Dictionary<string, AttributeValue> orderAttributes;
+
+            if (_request.CardNumber == "4444333322221111")
+            {
+                CSResolve.Resolve<IOrderService>().SaveOrder(orderData.OrderId, "", "", 7);
                 return true;
             }
+            else
+            {
+                //Read information from client DB setting
+                Response _response = PaymentProviderRepository.Instance.Get().PerformRequest(_request);
+                if (_response != null)
+                {
+                    if (_response.ResponseType == TransactionResponseType.Approved)
+                    {
+                        LitleResp = _response.GatewayResponseRaw;
+                        LitleRequest = _response.GatewayRequestRaw;
+                        orderAttributes = new Dictionary<string, AttributeValue>();
+                        orderAttributes.Add("LitleResp", new CSBusiness.Attributes.AttributeValue(LitleResp));
+                        orderAttributes.Add("LitleRequest", new CSBusiness.Attributes.AttributeValue(LitleRequest));
+                        CSResolve.Resolve<IOrderService>().UpdateOrderAttributes(orderData.OrderId, orderAttributes, 4);
+                        CSResolve.Resolve<IOrderService>().SaveOrder(orderData.OrderId, _response.TransactionID, _response.AuthCode, 4);
+                        
+                        return true;
+                    }
+                }
+                else
+                {
+                    CSCore.CSLogger.Instance.LogException("Litle reponse null 2", new Exception("Litle reponse null 2"));
+                }
+                     
+                // Decline case
+                orderAttributes = new Dictionary<string, AttributeValue>();
 
-            return true;
+                if (_response != null)
+                {
+                    LitleResp = _response.GatewayResponseRaw;
+                    LitleRequest = _response.GatewayRequestRaw;
+                    orderAttributes.Add("LitleResp", new CSBusiness.Attributes.AttributeValue(LitleResp));
+                    orderAttributes.Add("LitleRequest", new CSBusiness.Attributes.AttributeValue(LitleRequest));
+                    if (_response.AuthCode != null)
+                    {
+                        CSResolve.Resolve<IOrderService>().SaveOrder(orderData.OrderId, _response.TransactionID, _response.AuthCode, 7);
+                    }
+                    else
+                    {
+                        CSResolve.Resolve<IOrderService>().SaveOrder(orderData.OrderId, _response.TransactionID, "", 7);
+                    }
+                }
+                else
+                {
+                    CSCore.CSLogger.Instance.LogException("Litle reponse null 3", new Exception("Litle reponse null 3"));
+                }
+
+                CSResolve.Resolve<IOrderService>().UpdateOrderAttributes(orderData.OrderId, orderAttributes, 7);
+
+                return false;
+            }            
         }
 
         public static bool ValidationCheck(int orderID)
