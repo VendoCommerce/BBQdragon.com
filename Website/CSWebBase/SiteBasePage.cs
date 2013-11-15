@@ -40,26 +40,34 @@ namespace CSWebBase
             base.Page_Load(sender, e);
             AbTestingVersionUpdate updateVersionInfo = new AbTestingVersionUpdate();
             updateVersionInfo.LoadScripts(Page);
-            updateVersionInfo.UpdateVersionNameWhileAbTesting();
-            DoDeviceRedirect();
+            updateVersionInfo.UpdateVersionNameWhileAbTesting();            
             if (!Page.IsPostBack)
-                DoDeviceRedirect();
+                DoDeviceRedirect(ClientOrderData.VersionId);
         }
 
         public static void SendErrorEmail(string message)
         {
             CSCore.EmailHelper.SendEmail("info@conversionsystems.com", AdminEmail, "[SiteName.Com Error]", message, false);
         }
-        private void DoDeviceRedirect()
+        private void DoDeviceRedirect(int currentVersionId)
         {
             if (!Page.IsPostBack)
             {
                 if (ClientDeviceType == CSBusiness.Enum.DeviceType.Mobile)
                 {
-                    if (Request.QueryString.Count > 0)
-                        Response.Redirect("/MOBILE" + Request.QueryString, true);
-                    else
-                        Response.Redirect("/MOBILE", true);
+                    CSBusiness.Version currentVersion = (CSFactory.GetCacheSitePref()).VersionItems.FirstOrDefault(x => { return x.VersionId == currentVersionId; });
+
+                    if (currentVersion != null && !currentVersion.Title.ToUpper().Contains("MOBILE")) // mobile device not viewing the mobile version
+                    {
+                        if (Request.QueryString.Count > 0)
+                            Response.Redirect("/MOBILE" + Request.QueryString, true);
+                        else
+                            Response.Redirect("/MOBILE", true);
+                    }
+                    else if (currentVersion == null)
+                    {
+                        CSCore.CSLogger.Instance.LogException("No version found given current version Id. DoDeviceRedirect of sitebasepage.", new Exception("Currentversion null"));
+                    }
                 }
             }
         }
