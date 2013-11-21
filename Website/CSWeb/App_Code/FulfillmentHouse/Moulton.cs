@@ -101,7 +101,7 @@ namespace CSWeb.FulfillmentHouse
                     xml.WriteElementString("ZIP", orderItem.CustomerInfo.ShippingAddress.ZipPostalCode);
                     xml.WriteElementString("PHONE", orderItem.CustomerInfo.ShippingAddress.PhoneNumber);
                     xml.WriteElementString("COUNTRY_CODE", orderItem.CustomerInfo.ShippingAddress.CountryCode.Trim());
-                    xml.WriteElementString("SRC_CD", config.Attributes["SRC_CD"].Value);
+                    //xml.WriteElementString("SRC_CD", config.Attributes["SRC_CD"].Value);
                     xml.WriteElementString("CVV2", orderItem.CreditInfo.CreditCardCSC);
                     xml.WriteElementString("BILL_TO_COMPANY", "");
                     xml.WriteElementString("BILL_TO_L_NAME", orderItem.CustomerInfo.BillingAddress.LastName);
