@@ -405,6 +405,7 @@
     <Content Include="Content\Images\thumb2.png" />
     <Content Include="Content\Images\thumb3.jpg" />
     <Content Include="Content\Images\thumb3.png" />
+    <Content Include="Content\Images\thumbcta.png" />
     <Content Include="Content\Images\upsell_arrow.png" />
     <Content Include="Content\Images\upsell_batteries.jpg" />
     <Content Include="Content\Images\upsell_pp.jpg" />
