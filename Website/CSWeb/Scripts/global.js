@@ -146,7 +146,7 @@ $(".hometest2").bind("click touch", function(e){
 	$("#homet4").hide();
 			
   jwplayer('hometest2').setup({
-	file: '/content/video/home1.mp4',
+	file: '/content/video/home3.mp4',
 	autostart: true,
     primary: "flash",   
 	controls: true,
@@ -215,7 +215,7 @@ $(".hometest4").bind("click touch", function(e){
 	$("#homet4").show();
 			
   jwplayer('hometest4').setup({
-	file: '/content/video/home3.mp4',
+	file: '/content/video/home1.mp4',
 	autostart: true,
     primary: "flash",   
 	controls: true,

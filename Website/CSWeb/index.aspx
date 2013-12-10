@@ -35,9 +35,10 @@
 <div class="home1">
       <div class="video_list">
                   <ul id="thumb_list" class="thumb_list">
-                    <li><a href="javascript:void(0);" class="hometest2"><img src="Content/Images/thumbcta.png" /></a></li>
+                  <li><a href="javascript:void(0);" class="hometest2"><img src="Content/Images/thumb3.png" /></a></li>
                      <li><a href="javascript:void(0);" class="hometest3"><img src="Content/Images/thumb2.png" /></a></li>
-                    <li><a href="javascript:void(0);" class="hometest4"><img src="Content/Images/thumb3.png" /></a></li>
+              
+                     <li><a href="javascript:void(0);" class="hometest4"><img src="Content/Images/thumbcta.png" /></a></li>
           </ul>
               </div>
               <div class="video_right">
