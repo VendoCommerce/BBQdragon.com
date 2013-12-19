@@ -52,24 +52,48 @@ escape(navigator.appName)+'&sr='+escape(wa_sr)+'&rf='+escape(wa_rf)+'&mvk='+esca
 </asp:Panel>
 
 <asp:Panel ID="pnlReceiptPage" runat="server" Visible="false">
-    <script type="text/javascript">
- var newPageName = '/' +
-    <%=versionNameClientFunction %> + window.location.pathname +
-    window.location.search;
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-40260485-1']);
-    _gaq.push(['_set', 'page', newPageName]);
-    _gaq.push(['_trackPageview']);
+ <!-- Garo:  12/18/2013  : AdRoll Pixel  -->
+    <script type="text/javascript">
+        adroll_adv_id = "3WOKZNNX2JGDZOJJROEULP";
+        adroll_pix_id = "AGPFCBEVCJFBDJWUZ2QFGL";
+        (function () {
+            var oldonload = window.onload;
+            window.onload = function () {
+                __adroll_loaded = true;
+                var scr = document.createElement("script");
+                var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+                scr.setAttribute('async', 'true');
+                scr.type = "text/javascript";
+                scr.src = host + "/j/roundtrip.js";
+                ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+                if (oldonload) { oldonload() }
+            };
+        } ());
+    </script>
+    
+    <!-- Google Analytics Ecommerce Pixel updated 18/12/2013 GA -->
+    <script type="text/javascript">
+        
+       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+var hndl = window.setTimeout('StartTracking()', 100);
+function StartTracking(){
+if (typeof(_gat) == 'object')
+{
+window.clearTimeout(hndl);         
+var pageTracker =_gat._getTracker('UA-40260485-1');
+pageTracker._initData();
+pageTracker._trackPageview();
     <asp:Literal ID="litGAReceiptPixel" runat="server" />
-    (function () {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-</script>
-    
-    
+
+        pageTracker._trackTrans();
+} else {
+hndl = window.setTimeout('StartTracking()', 1000);
+}
+}       
+    </script>  
       
                   <asp:Literal ID="litMdgConfirm" runat="server" />
 
