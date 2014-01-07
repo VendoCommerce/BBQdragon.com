@@ -733,7 +733,7 @@ namespace CSWeb.Mobile.UserControls
                     CartContext.CartInfo.Compute();
                 }
                 Session["ClientOrderData"] = CartContext;
-                ShoppingCartControl1.BindControls();
+                //ShoppingCartControl1.BindControls();
             }
         }
         #endregion General Methods

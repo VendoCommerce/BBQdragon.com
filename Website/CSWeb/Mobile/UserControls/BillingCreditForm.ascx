@@ -14,14 +14,13 @@
         // do something after Microsoft finishes 
     }
 </script>
-    <%@ Register Src="ShoppingCartControl.ascx" TagName="ShoppingCartControl"
-    TagPrefix="uc" %>
+   
 <asp:ScriptManager runat="server" ID="smss1">
 </asp:ScriptManager>
 <asp:UpdatePanel ID="upBillingForm" runat="server">
     <ContentTemplate>
 <img src="/Content/Images/mobile/cart2_top.jpg" style="margin-bottom: 20px" />
-        <uc:ShoppingCartControl ID="ShoppingCartControl1" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl>     
+       
 
 
 <div class="cart_mobile">

@@ -95,6 +95,22 @@ namespace CSWeb.Root.UserControls
                 BindCreditCard();
                 FillShippingInfo();
                 PopulateExpiryYear();
+
+                string url = Request.Url.AbsolutePath.ToLower();
+
+                if (url.EndsWith("/cart1.aspx"))
+                {
+                    imgFormTop.Src = "/Content/Images/cart2form_top.jpg";
+                    pnlRegularCart.Visible = true;
+                    pnlAlaCart.Visible = false;
+                }
+                else
+                {
+                    imgFormTop.Src = "/Content/Images/paymentinfo.jpg";
+                    pnlRegularCart.Visible = false;
+                    pnlAlaCart.Visible = true;
+                    pnlQty.Visible = false;
+                }
             }
 
         }

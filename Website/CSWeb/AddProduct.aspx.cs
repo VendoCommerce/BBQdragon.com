@@ -67,21 +67,41 @@ namespace CSWeb.Root.Store
 
                         Response.Redirect("PostSale.aspx");
                     }
-                    else if(cId == (int)ShoppingCartType.ShippingCreditCheckout)
+                    else if (cId == (int)ShoppingCartType.ShippingCreditCheckout)
                     {
                         clientData = (ClientCartContext)Session["ClientOrderData"];
-                        cartObject = new Cart();
+
+                        if (Request["page"] != null && Request["page"].ToString().ToLower().Equals("lacart"))
+                        {
+                            if (clientData.CartInfo != null)
+                            {
+                                cartObject = clientData.CartInfo;
+                                if (cartObject.SkuExists(102))
+                                {
+                                    cartObject.RemoveSku(102);
+                                }
+                            }
+                            else
+                            {
+                                cartObject = new Cart();
+                            }
+                        }
+                        else
+                        {
+                            cartObject = new Cart();
+                        }
+
                         cartObject.AddItem(skuId, qId, true, false);
                         if (dId > 0)
                         {
                             bool settingVal = Convert.ToBoolean(ConfigHelper.ReadAppSetting("DisCountCardDisplay", "false"));
                             cartObject.AddItem(dId, qId, settingVal, false);
                         }
-                        if (clientData.CustomerInfo != null)
+                        if (clientData.CustomerInfo != null && clientData.CustomerInfo.BillingAddress != null)
                             cartObject.ShippingAddress = clientData.CustomerInfo.BillingAddress;
-                        else 
+                        else
                             cartObject.ShippingAddress = new Address();
-                            
+
                         cartObject.Compute();
                         cartObject.ShowQuantity = false;
                         clientData.CartInfo = cartObject;
@@ -89,6 +109,10 @@ namespace CSWeb.Root.Store
                         if (Request["page"] != null && Request["page"].ToString().ToLower().Equals("onepay"))
                         {
                             Response.Redirect("cart1.aspx");
+                        }
+                        else if (Request["page"] != null && Request["page"].ToString().ToLower().Equals("lacart"))
+                        {
+                            Response.Redirect("LaCart.aspx");
                         }
                         else
                             Response.Redirect("cart.aspx");

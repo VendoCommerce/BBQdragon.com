@@ -1,10 +1,20 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="CSWeb.Mobile.UserControls.ShippingForm" CodeBehind="ShippingForm.ascx.cs" %>
+ <%@ Register Src="ShoppingCartControl.ascx" TagName="ShoppingCartControl"
+              TagPrefix="uc" %>
+                 <%@ Register Src="ShoppingCartControl2.ascx" TagName="ShoppingCartControl2"
+    TagPrefix="uc" %>
 <asp:ScriptManager runat="server" ID="sm1">
 </asp:ScriptManager>
 <asp:UpdatePanel ID="upBillingForm" runat="server">
     <ContentTemplate>
-        <img src="/content/images/mobile/cart_top.jpg" />
-
+        <%--<img src="/content/images/mobile/cart_top.jpg" />--%>
+         <asp:Panel runat="server" ID="pnlRegularCart">
+      <uc:ShoppingCartControl ID="ShoppingCartControl1" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl>   
+      </asp:Panel>
+        
+        <asp:Panel runat="server" ID="pnlAlaCart" Visible="False">
+        <uc:ShoppingCartControl2 ID="ShoppingCartControl13" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl2>   
+        </asp:Panel>   
         <div class="cart_mobile">
         
         
@@ -105,6 +115,7 @@
             </asp:Panel>
       
             <div class="form_line_btn">
+                 <asp:Label ID="lblShoppingCart" runat="server" Visible="false"></asp:Label>
                 <asp:ImageButton ID="imgBtn" runat="server" ImageUrl="/content/images/mobile/continue_btn.jpg" OnClick="imgBtn_OnClick" />
                
             </div>

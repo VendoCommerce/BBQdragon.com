@@ -31,6 +31,14 @@ namespace CSWeb.Mobile.UserControls
                 ViewState["RedirectUrl"] = value;
             }
         }
+
+        private ClientCartContext CartContext
+        {
+            get
+            {
+                return Session["ClientOrderData"] as ClientCartContext;
+            }
+        }
         #endregion Variable and Events Declaration
 
         #region Page Events
@@ -66,6 +74,28 @@ namespace CSWeb.Mobile.UserControls
             {
                 BindShippingCountries(true);
                 BindShippingRegions();
+
+                string url = Request.Url.AbsolutePath.ToLower();
+
+                if (url.EndsWith("/cart.aspx"))
+                {
+                    ClientCartContext clientData = (ClientCartContext)Session["ClientOrderData"];
+
+                    if (!clientData.CartInfo.SkuExists(102))
+                    {
+                        Response.Redirect(RedirectUrl + "?PId=102&CId=" + (int)CSBusiness.ShoppingManagement.ShoppingCartType.ShippingCreditCheckout);
+                    }
+                   // imgFormTop.Src = "/Content/Images/cart2form_top.jpg";
+                    pnlRegularCart.Visible = true;
+                    pnlAlaCart.Visible = false;
+                }
+                else
+                {
+                    //imgFormTop.Src = "/Content/Images/paymentinfo.jpg";
+                    pnlRegularCart.Visible = false;
+                    pnlAlaCart.Visible = true;
+                    
+                }
 
             }
 
@@ -128,6 +158,13 @@ namespace CSWeb.Mobile.UserControls
         }
         public bool validateInput()
         {
+
+            if (CartContext.CartInfo.CartItems.Count == 0)
+            {
+                lblShoppingCart.Text = "Your Shopping Cart is Empty Please add some Items to continue.";
+                lblShoppingCart.Visible = true;
+                _bError = true;
+            }
 
 
             if (CommonHelper.EnsureNotNull(txtShippingFirstName.Text) == String.Empty)
@@ -297,11 +334,36 @@ namespace CSWeb.Mobile.UserControls
         {
             if (!validateInput())
             {
+                UpdateAdditionalBBQKit();
                 SaveData();
-                Response.Redirect(RedirectUrl + "?PId=102&CId=" + (int)CSBusiness.ShoppingManagement.ShoppingCartType.ShippingCreditCheckout);
+                Response.Redirect("cart1.aspx");
             }
 
 
+        }
+
+        public void UpdateAdditionalBBQKit()
+        {
+            int qty = 1;
+            int additionalSku = 106; // update this to be sku attribute.
+            Sku skuItem = CartContext.CartInfo.CartItems.Find(x => x.SkuId == 102);
+            if (skuItem != null)
+            {
+                qty = Convert.ToInt32(skuItem.Quantity.ToString());
+                if (qty == 1)
+                {
+                    CartContext.CartInfo.SkuExists(additionalSku);
+                    CartContext.CartInfo.RemoveSku(additionalSku);
+                }
+                else if (qty > 1)
+                {
+                    CartContext.CartInfo.AddOrUpdate(additionalSku, qty - 1, true, false, false);
+                    CartContext.CartInfo.Compute();
+                }
+                Session["ClientOrderData"] = CartContext;
+                ShoppingCartControl1.BindControls();
+                ShoppingCartControl13.BindControls();
+            }
         }
         public void SaveData()
         {

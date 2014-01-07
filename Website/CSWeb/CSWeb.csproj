@@ -434,6 +434,7 @@
     <Content Include="header_cart.html" />
     <Content Include="header_upsell.html" />
     <Content Include="howitworks.aspx" />
+    <Content Include="LaCart.aspx" />
     <Content Include="Mobile\AddProduct.aspx" />
     <Content Include="Mobile\AuthorizeOrder.aspx" />
     <Content Include="Mobile\bottomcta.html" />
@@ -455,9 +456,11 @@
     <Content Include="Mobile\header_upsell.html" />
     <Content Include="Mobile\howitworks.aspx" />
     <Content Include="Mobile\index.aspx" />
+    <Content Include="Mobile\LaCart.aspx" />
     <Content Include="Mobile\popups.html" />
     <Content Include="Mobile\PostSale.aspx" />
     <Content Include="Mobile\privacy.aspx" />
+    <Content Include="Mobile\products.aspx" />
     <Content Include="Mobile\receipt.aspx" />
     <Content Include="Mobile\ReviewOrder.aspx" />
     <Content Include="Mobile\terms.aspx" />
@@ -484,6 +487,8 @@
     <Content Include="Mobile\UserControls\TrackingPixels.ascx" />
     <Content Include="popups.html" />
     <Content Include="privacy.aspx" />
+    <Content Include="products.aspx" />
+    <Content Include="Mobile\UserControls\ShoppingCartControl2.ascx" />
     <Content Include="Styles\fonts\helvbold.eot" />
     <Content Include="Styles\fonts\helvbold.svg" />
     <Content Include="Styles\fonts\helvbold.ttf" />
@@ -525,6 +530,7 @@
     <Content Include="UserControls\ShippingCreditForm.ascx" />
     <Content Include="UserControls\ShippingForm.ascx" />
     <Content Include="UserControls\ShoppingCartControl.ascx" />
+    <Content Include="UserControls\ShoppingCartControl2.ascx" />
     <Content Include="UserControls\TrackingPixels.ascx" />
     <Content Include="contact.aspx" />
     <Content Include="Content\Images\admin\add.gif" />
@@ -1305,6 +1311,10 @@
     <Compile Include="Cart_A\UserControls\ReviewOrder.ascx.designer.cs">
       <DependentUpon>ReviewOrder.ascx</DependentUpon>
     </Compile>
+    <Compile Include="LaCart.aspx.cs">
+      <DependentUpon>LaCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Mobile\AddProduct.aspx.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1358,6 +1368,10 @@
     </Compile>
     <Compile Include="Mobile\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\LaCart.aspx.cs">
+      <DependentUpon>LaCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Mobile\PostSale.aspx.cs">
@@ -1494,6 +1508,13 @@
     </Compile>
     <Compile Include="Mobile\UserControls\TrackingPixels.ascx.designer.cs">
       <DependentUpon>TrackingPixels.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\UserControls\ShoppingCartControl2.ascx.cs">
+      <DependentUpon>ShoppingCartControl2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\UserControls\ShoppingCartControl2.ascx.designer.cs">
+      <DependentUpon>ShoppingCartControl2.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ShippingBillingCreditForm.ascx.cs">
       <DependentUpon>ShippingBillingCreditForm.ascx</DependentUpon>
@@ -1647,6 +1668,13 @@
     </Compile>
     <Compile Include="UserControls\ShoppingCartControl.ascx.designer.cs">
       <DependentUpon>ShoppingCartControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShoppingCartControl2.ascx.cs">
+      <DependentUpon>ShoppingCartControl2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShoppingCartControl2.ascx.designer.cs">
+      <DependentUpon>ShoppingCartControl2.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TrackingPixels.ascx.cs">
       <DependentUpon>TrackingPixels.ascx</DependentUpon>

@@ -1,5 +1,7 @@
 ﻿<%@Control Language="C#" AutoEventWireup="true" Inherits="CSWeb.Root.UserControls.ShippingBillingCreditForm" CodeBehind="ShippingBillingCreditForm.ascx.cs" %>
 <%@ Register Src="ShoppingCartControl.ascx" TagName="ShoppingCartControl"
+             TagPrefix="uc" %>
+                 <%@ Register Src="ShoppingCartControl2.ascx" TagName="ShoppingCartControl2"
     TagPrefix="uc" %>
 <script type="text/javascript" src="/Scripts/autoTab.js"></script>
 <script type="text/javascript">
@@ -25,36 +27,45 @@
         <h2>Cart</h2>
         
         
-        <uc:ShoppingCartControl ID="ShoppingCartControl1" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl>  
+         <asp:Panel runat="server" ID="pnlRegularCart">
+      <uc:ShoppingCartControl ID="ShoppingCartControl1" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl>   
+      </asp:Panel>
+        
+        <asp:Panel runat="server" ID="pnlAlaCart" Visible="False">
+        <uc:ShoppingCartControl2 ID="ShoppingCartControl13" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl2>   
+        </asp:Panel>
     </div>
   
   
   <div class="cart_right">
  <div class="cartB">
-        	<div><img src="/Content/Images/cart2form_top.jpg" style="margin-bottom: 20px" />
+        	<div><img src="/Content/Images/cart2form_top.jpg" id="imgFormTop" runat="server" style="margin-bottom: 20px" />
             </div>
-                <div id="Div1" class="form_line clearfix" runat="server" visible="false">
-                    <div class="error-1">
-                        <asp:Label ID="lblShippingCountryError" runat="server" Visible="false"></asp:Label></div>
+     <div id="Div1" class="form_line clearfix" runat="server" visible="false">
+         <div class="error-1">
+             <asp:Label ID="lblShippingCountryError" runat="server" Visible="false"></asp:Label></div>
                  
-                     <asp:RadioButtonList ID="ddlShippingCountry" runat="server" DataTextField="NAME" RepeatLayout="Table" RepeatDirection="Horizontal" DataValueField="COUNTRYID" AutoPostBack="true" OnSelectedIndexChanged="ShippingCountry_SelectedIndexChanged" CssClass="countryselect">
-        </asp:RadioButtonList>
+         <asp:RadioButtonList ID="ddlShippingCountry" runat="server" DataTextField="NAME" RepeatLayout="Table" RepeatDirection="Horizontal" DataValueField="COUNTRYID" AutoPostBack="true" OnSelectedIndexChanged="ShippingCountry_SelectedIndexChanged" CssClass="countryselect">
+         </asp:RadioButtonList>
                
-                <div class="canada_shipping">*$20 S&H FEE APPLIES</div>
-            </div>
-                           <div class="form_line clearfix">
-                    <div class="error-1">                                                 
-                    </div>
-                    <label class="label-1" style="width: 70px">
-                        Quantity*</label>
-                    <asp:DropDownList ID="ddlQty" runat="server" CssClass="text-4" AutoPostBack="true"
-                        onselectedindexchanged="ddlQty_SelectedIndexChanged">
-                    <asp:ListItem>1</asp:ListItem>
-                    <asp:ListItem>2</asp:ListItem>
-                    <asp:ListItem>3</asp:ListItem>                    
-                    </asp:DropDownList>
-               <div class="freeshipcall2"><img src="/Content/Images/ships_free_call2.jpg" /></div>
-                </div>
+         <div class="canada_shipping">*$20 S&H FEE APPLIES</div>
+     </div>
+      <asp:Panel runat="server" ID="pnlQty">
+     <div class="form_line clearfix">
+         <div class="error-1">                                                 
+         </div>
+        
+         <label class="label-1" style="width: 70px">
+             Quantity*</label>
+         <asp:DropDownList ID="ddlQty" runat="server" CssClass="text-4" AutoPostBack="true"
+                           onselectedindexchanged="ddlQty_SelectedIndexChanged">
+             <asp:ListItem>1</asp:ListItem>
+             <asp:ListItem>2</asp:ListItem>
+             <asp:ListItem>3</asp:ListItem>                    
+         </asp:DropDownList>
+         <div class="freeshipcall2"><img src="/Content/Images/ships_free_call2.jpg" /></div>
+     </div>
+       </asp:Panel>
             
             <div class="form_line clearfix" style="padding-top: 10px">
                     <div class="error-1">

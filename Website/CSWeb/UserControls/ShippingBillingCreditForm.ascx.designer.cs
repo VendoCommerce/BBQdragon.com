@@ -31,6 +31,15 @@ namespace CSWeb.Root.UserControls {
         protected global::System.Web.UI.UpdatePanel upBillingForm;
         
         /// <summary>
+        /// pnlRegularCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlRegularCart;
+        
+        /// <summary>
         /// ShoppingCartControl1 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,33 @@ namespace CSWeb.Root.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::CSWeb.Root.UserControls.ShoppingCartControl ShoppingCartControl1;
+        
+        /// <summary>
+        /// pnlAlaCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAlaCart;
+        
+        /// <summary>
+        /// ShoppingCartControl13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CSWeb.Root.UserControls.ShoppingCartControl2 ShoppingCartControl13;
+        
+        /// <summary>
+        /// imgFormTop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgFormTop;
         
         /// <summary>
         /// Div1 control.
@@ -65,6 +101,24 @@ namespace CSWeb.Root.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList ddlShippingCountry;
+        
+        /// <summary>
+        /// pnlQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlQty;
+        
+        /// <summary>
+        /// ddlQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlQty;
         
         /// <summary>
         /// rfvShippingFirstName control.
@@ -317,15 +371,6 @@ namespace CSWeb.Root.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// ddlQty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlQty;
         
         /// <summary>
         /// pnlQuantity control.
