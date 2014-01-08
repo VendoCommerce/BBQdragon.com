@@ -19,8 +19,7 @@
 </asp:ScriptManager>
 <asp:UpdatePanel ID="upBillingForm" runat="server">
     <ContentTemplate>
-<img src="/Content/Images/mobile/cart2_top.jpg" style="margin-bottom: 20px" />
-       
+      
 
 
 <div class="cart_mobile">

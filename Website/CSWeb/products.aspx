@@ -26,25 +26,35 @@
                     <!--#include file="popups.html"-->
                     <!--#include file="header.html"-->
                     <div class="container">
-                        <div class="page">
+                        <div class="page" style="padding: 36px 25px 250px 25px;">
                             
                             
 
-                            <h2>Rechargable Batteries and AC Wall Charger</h2>
-                            <p style="width: 567px"></p>
+                            <h2>Accessories</h2>
                             <div class="product_box">
                                 <div class="product_title"></div>
-                                <div class="product_image"><img src="/content/Images/test.jpg" width="216" height="228" /></div>
+                                <div class="product_image">
+                                	<a href="#battery_kit" class="battery_kit"><img src="/content/Images/prod_battery_kit.jpg" width="196" height="196" alt="Rechargeable Battery Kit" /></a>
+                                	<p><a href="#battery_kit" class="battery_kit">View Larger Image</a></p>
+                                </div>
                                 <div class="product_info">
-                                    <p>
-                                               Price: $29.99 + $7.99 S&H</p>
-                                    <div class="info_left"><label>Qty.</label>   <asp:DropDownList ID="ddlBattery" runat="server" AutoPostBack="True">
-                                                                                     <asp:ListItem Text="1" Value="1" Selected="True"></asp:ListItem>
-                                                                                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                                                                                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                                                                                 </asp:DropDownList>
+                                	
+                                    <h3>Rechargeable Batteries and AC Wall Charger</h3>
+                                    <p>This is a must-have BBQ Dragon companion product. The BBQ Dragon was designed to be chargeable and super-convenient. Get the official BBQ Dragon charger and battery kit.</p>
+                                    <p>4 x Super High-quality BBQ Dragon NiMh (nickel metal hydride) AA batteries, 2500mAh of charge capacity. These top of the line rechargeables are manufactured to our standards, especially for BBQ Dragon, and you can't purchase better batteries. A full charge on these bad boys will run your BBQ Dragon for more than two hours at a medium speed, and start dozens of fires. That's a lot of seared steak, my friend.</p>
+                                    
+                                    <p class="webfont1 f14" style="color: #565656;">
+                                    	<span class="webfont2 f16">Price: $29.99</span> + $7.99 S&amp;H
+                                    </p>
+                                    <div class="fleft" style="width: 90px; padding-top: 6px;">
+                                    	<label>Qty.</label>
+                                        <asp:DropDownList ID="ddlBattery" runat="server" AutoPostBack="True">
+                                            <asp:ListItem Text="1" Value="1" Selected="True"></asp:ListItem>
+                                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
-                                    <div class="info_right"><a href="AddProduct.aspx?Pid=107&Cid=2&page=lacart&Qid=<%=ddlBattery.SelectedValue%>"><img src="/Content/Images/addtocart_btn.png" width="145" height="35" /></a></div>
+                                    <div class="fleft" style="width: 200px;"><a href="AddProduct.aspx?Pid=107&Cid=2&page=lacart&Qid=<%=ddlBattery.SelectedValue%>"><img src="/Content/Images/btn_addtocart.png" width="146" height="30" alt="Add to Cart" /></a></div>
                                     <div class="clear"></div>
                                 </div>
                             </div>
@@ -52,7 +62,8 @@
                             <div class="clear"></div>
                            
                         </div>
-
+                        
+					<!--#include file="bottomcta.html"-->
                     </div>
                     <!--#include file="footer.html"-->
 

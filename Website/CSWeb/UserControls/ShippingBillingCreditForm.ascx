@@ -43,7 +43,9 @@
             </div>
      <div id="Div1" class="form_line clearfix" runat="server" visible="false">
          <div class="error-1">
-             <asp:Label ID="lblShippingCountryError" runat="server" Visible="false"></asp:Label></div>
+             <asp:Label ID="lblShoppingCart" runat="server" Visible="false"></asp:Label>
+             <asp:Label ID="lblShippingCountryError" runat="server" Visible="false"></asp:Label>
+         </div>
                  
          <asp:RadioButtonList ID="ddlShippingCountry" runat="server" DataTextField="NAME" RepeatLayout="Table" RepeatDirection="Horizontal" DataValueField="COUNTRYID" AutoPostBack="true" OnSelectedIndexChanged="ShippingCountry_SelectedIndexChanged" CssClass="countryselect">
          </asp:RadioButtonList>

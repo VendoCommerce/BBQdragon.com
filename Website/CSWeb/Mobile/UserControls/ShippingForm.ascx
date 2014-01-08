@@ -7,6 +7,7 @@
 </asp:ScriptManager>
 <asp:UpdatePanel ID="upBillingForm" runat="server">
     <ContentTemplate>
+    <img src="/Content/Images/mobile/cart2_top.jpg" style="margin-bottom: 20px" />
         <%--<img src="/content/images/mobile/cart_top.jpg" />--%>
          <asp:Panel runat="server" ID="pnlRegularCart">
       <uc:ShoppingCartControl ID="ShoppingCartControl1" runat="server" OnUpdateShipping="Shipping_OnUpdateShipping"></uc:ShoppingCartControl>   

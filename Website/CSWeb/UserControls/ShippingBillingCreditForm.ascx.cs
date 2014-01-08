@@ -242,6 +242,13 @@ namespace CSWeb.Root.UserControls
         public bool validateInput()
         {
 
+            if (ClientOrderData.CartInfo.CartItems.Count == 0)
+            {
+                lblShoppingCart.Text = "Your Shopping Cart is Empty Please add some Items to continue.";
+                lblShoppingCart.Visible = true;
+                _bError = true;
+            }
+
             if (CommonHelper.EnsureNotNull(txtShippingFirstName.Text) == String.Empty)
             {
                 lblShippingFirstName.Text = ResourceHelper.GetResoureValue("FirstNameErrorMsg");

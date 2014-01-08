@@ -3,17 +3,13 @@
 <asp:LinkButton ID="refresh" runat="server" CausesValidation="false"></asp:LinkButton>
 <asp:Repeater runat="server" ID="rptShoppingCart" OnItemDataBound="rptShoppingCart_OnItemDataBound"
     OnItemCommand="rptShoppingCart_OnItemCommand">
-    <HeaderTemplate> <div class="cart_table clearfix">
-                 <div class="cart_image">Item
-                 </div>
-           
-                     <div class="cart_select">Quantity
-                     </div>
-                        <div class="product_price">Price
-                        </div>
-                        </div>   
-                        <div class="horizontal_dots">
-        </div>
+    <HeaderTemplate>
+    	<div class="cart_table clearfix">
+             <div class="cart_image">Item</div>
+             <div class="cart_select">Quantity</div>
+             <div class="product_price">Price</div>
+        </div>   
+        <div class="horizontal_dots"></div>
     </HeaderTemplate>
     <ItemTemplate>
        

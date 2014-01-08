@@ -57,6 +57,25 @@ $(this).children().toggleClass('icon-plus icon-minus');
         }
     });
 	
+	  $(".battery_kit").fancybox({
+        closeBtn: false,
+        fitToView: false,
+        padding: 20,
+        width: 680,
+        height: 492,
+        autoSize: false,
+        closeClick: false,
+        scrolling: 'no',
+        helpers: {
+            overlay: {
+				locked: false,
+				css : {
+					'background' : 'rgba(0,0,0,.8)'
+					}
+            }
+        }
+    });
+	
 	    $(".cvv").fancybox({
         closeBtn: false,
         fitToView: false,

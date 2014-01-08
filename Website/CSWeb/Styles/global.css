@@ -223,6 +223,12 @@ body {
 	margin: 0 6px;
 }
 
+.footer .social {
+	position: absolute;
+	right: 0;
+	top: 64px;
+}
+
 .footer .social a {
 	margin: 0 1px;	
 }
@@ -571,12 +577,36 @@ width: 300px;
   position: relative;
   width: 250px;
 }
+
+.cart_text2 {
+  float: left;
+  padding: 0 20px;
+  position: relative;
+  width: 235px;
+}
+
+.cart_remove  {
+  float: left;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  width: 50px;
+}
+
 .cart_select {
   float: left;
   position: relative;
   text-align: center;
   font-weight: bold;
   width: 135px;
+}
+
+.cart_select2 {
+  float: left;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  width: 100px;
 }
 
 .product_price {
@@ -922,4 +952,41 @@ width: 300px;
 	line-height: 18px;
 	font-size: 11px;	
 	padding-bottom: 20px;
+}
+
+
+/* Accessories (products.aspx) */
+.product_image {
+	float: left;
+	width: 200px;
+	margin: 3px 10px 0 0;
+}
+
+.product_image p {
+	font-size: 11px;
+	padding: 7px 0;
+	text-align: center;
+}
+
+.product_image a {
+	color: #565656;
+	text-decoration: underline;
+}
+
+.product_info {
+	float: left;
+	width: 440px;
+}
+
+.product_info h3 {
+	color: #2d2d2d;
+	font-size: 20px;
+	padding: 0 0 2px 0;
+	font-family: 'helvcondbold', sans-serif;	
+}
+
+.product_info p {
+	color: #333839;
+	line-height: 19px;
+	padding-bottom: 23px;	
 }

@@ -10,7 +10,7 @@
                   </div>
                     <div class="cart_remove">Remove
                      </div>
-                     <div class="cart_select">Quantity
+                     <div class="cart_select2">Quantity
                      </div>
                         <div class="product_price text-center">Payment
                         </div>
@@ -29,13 +29,13 @@
                     <asp:Label runat="server" ID='lblSkuDescription'></asp:Label></p>
             </div>
                <div class="cart_remove">
-                <td runat="server" width="1%" id='holderRemove'>
-                    <asp:ImageButton ID="btnRemoveItem" runat="server" CommandName="delete" CausesValidation="false" Visible="" CssClass="ucRemoveButtonOverlay" ImageUrl="/Content/images/remove_btn.jpg" />
-                </td>
+                <div runat="server" width="1%" id='holderRemove'>
+                    <asp:ImageButton ID="btnRemoveItem" runat="server" CommandName="delete" CausesValidation="false" Visible="" CssClass="ucRemoveButtonOverlay" ImageUrl="/Content/images/btn_remove.png" />
+                </div>
                </div>
-            <div class="cart_select">
+            <div class="cart_select2">
            
-                <asp:TextBox runat="server" ID="txtQuantity" Text='1' MaxLength="3" Columns="2" OnTextChanged="OnTextChanged_Changed"></asp:TextBox>
+                <asp:TextBox runat="server" ID="txtQuantity" Text='1' Enabled="False" MaxLength="3" Columns="2" OnTextChanged="OnTextChanged_Changed"></asp:TextBox>
                 <asp:Label runat="server" ID="lblQuantity">
                 </asp:Label>
               </div>
@@ -51,20 +51,18 @@
         <div class="horizontal_dots">
         </div>
         <div class="cart_totals clearfix">
-        <a href="products.aspx" class="fleft"><img src="/Content/Images/continue_shopping_btn.png" /></a>
+        <a href="products.aspx" class="fleft">&lt; Continue Shopping</a>
             <div class="cart_totals_left">
                 Subtotal<br />
-                Process & Handling<br />
-                Tax
-                <br />
+                S&amp;H<br />
+                Tax <br />
                 Total<br>
 
 </div>
             <div class="cart_totals_right">
                 <asp:Literal runat="server" ID='lblSubtotal'></asp:Literal><br />
                 <asp:Literal runat="server" ID="lblShipping"></asp:Literal><br />
-                <asp:Literal runat="server" ID="lblTax"></asp:Literal>
-                <br />
+                <asp:Literal runat="server" ID="lblTax"></asp:Literal><br />
                 <asp:Literal runat="server" ID="lblOrderTotal"></asp:Literal><br>
           <table>
                     <tr id='holderRushShippingTotal' runat="server" Visible="False">

@@ -23,13 +23,13 @@
   
 <div class="container">
 <!--#include file="popups.html"-->
-<!--#include file="header_cart.html"-->
+<!--#include file="header.html"-->
 
 <div class="content">
 
  <uc:BillingFormControl ID="sfcShippingInfo" runat="server" RedirectUrl="AddProduct.aspx" />
  </div>
- <!--#include file="footer_upsell.html"-->
+ <!--#include file="footer.html"-->
 </div>
 
 <uc:TrackingPixels ID="TrackingPixels" runat="server" />

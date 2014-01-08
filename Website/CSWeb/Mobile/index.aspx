@@ -30,7 +30,7 @@
 
 <div class="content">
 
-<div class="hometop"><img src="../Content/Images/mobile/home_bg.jpg" width="640" height="1226" usemap="#Maphome" class="block" />
+<div class="hometop"><img src="../Content/Images/mobile/home_bg.jpg" width="640" height="1315" usemap="#Maphome" class="block" />
   <map name="Maphome">
   
     <area shape="rect" coords="341,135,622,315" href="/content/video/ctavideo.mp4">
@@ -39,9 +39,12 @@
     <area shape="rect" coords="5,691,635,775" href="howitworks.aspx">
     <area shape="rect" coords="8,779,633,861" href="testimonials.aspx">
     <area shape="rect" coords="4,868,633,953" href="faq.aspx">
-    <area shape="rect" coords="5,959,636,1043" href="privacy.aspx">
-    <area shape="rect" coords="3,1047,631,1136" href="terms.aspx">
-    <area shape="rect" coords="6,1141,630,1220" href="mailto:[enter your email address]?subject=Email Reminder from BBQ Dragon&body=Just sending a reminder to order from BBQ Dragon! Simply visit http://www.bbqdragon.com to start grilling like a pro.">
+    <area shape="rect" coords="5,959,636,1043" href="products.aspx">
+    
+    <area shape="rect" coords="3,1047,631,1136" href="privacy.aspx">
+    
+    <area shape="rect" coords="6,1141,630,1220" href="terms.aspx">
+    <area shape="rect" coords="6,1227,630,1310" href="mailto:[enter your email address]?subject=Email Reminder from BBQ Dragon&body=Just sending a reminder to order from BBQ Dragon! Simply visit http://www.bbqdragon.com to start grilling like a pro.">
     <area shape="circle" coords="105,259,90" href="#guarantee" class="guarantee">
   </map>
 </div>

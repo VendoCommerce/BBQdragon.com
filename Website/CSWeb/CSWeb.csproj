@@ -303,6 +303,9 @@
     <Content Include="Content\Images\bbqdragon_logo.jpg" />
     <Content Include="Content\Images\bbq_trynow_btn.jpg" />
     <Content Include="Content\Images\bottomcta.jpg" />
+    <Content Include="Content\Images\btn_addtocart.png" />
+    <Content Include="Content\Images\btn_ordernow_acc.png" />
+    <Content Include="Content\Images\btn_remove.png" />
     <Content Include="Content\Images\cards.jpg" />
     <Content Include="Content\Images\cart2form_top.jpg" />
     <Content Include="Content\Images\cartform_top.jpg" />
@@ -351,6 +354,7 @@
     <Content Include="Content\Images\leftarrow.jpg" />
     <Content Include="Content\Images\mobile\arrow_left.jpg" />
     <Content Include="Content\Images\mobile\arrow_right.jpg" />
+    <Content Include="Content\Images\mobile\btn_addtocart.png" />
     <Content Include="Content\Images\mobile\cards.jpg" />
     <Content Include="Content\Images\mobile\cart2_top.jpg" />
     <Content Include="Content\Images\mobile\cartimage.jpg" />
@@ -362,6 +366,7 @@
     <Content Include="Content\Images\mobile\freeshipcall.jpg" />
     <Content Include="Content\Images\mobile\freeshipcall2.jpg" />
     <Content Include="Content\Images\mobile\header_home.jpg" />
+    <Content Include="Content\Images\mobile\header_products.jpg" />
     <Content Include="Content\Images\mobile\header_sub.jpg" />
     <Content Include="Content\Images\mobile\header_upsell.jpg" />
     <Content Include="Content\Images\mobile\home_bg.jpg" />
@@ -375,6 +380,7 @@
     <Content Include="Content\Images\mobile\icon_yt.png" />
     <Content Include="Content\Images\mobile\nothanks_btn.jpg" />
     <Content Include="Content\Images\mobile\paymentinfo.jpg" />
+    <Content Include="Content\Images\mobile\prod_battery_kit.jpg" />
     <Content Include="Content\Images\mobile\slide1.jpg" />
     <Content Include="Content\Images\mobile\slide2.jpg" />
     <Content Include="Content\Images\mobile\slide3.jpg" />
@@ -390,6 +396,9 @@
     <Content Include="Content\Images\nothanks_btn.jpg" />
     <Content Include="Content\Images\openquote.jpg" />
     <Content Include="Content\Images\ordernow_btn.jpg" />
+    <Content Include="Content\Images\paymentinfo.jpg" />
+    <Content Include="Content\Images\prod_battery_kit.jpg" />
+    <Content Include="Content\Images\prod_battery_kit_lg.jpg" />
     <Content Include="Content\Images\rightarrow.jpg" />
     <Content Include="Content\Images\ships_free_call.jpg" />
     <Content Include="Content\Images\ships_free_call2.jpg" />
@@ -453,6 +462,7 @@
     <Content Include="Mobile\header.html" />
     <Content Include="Mobile\header_cart.html" />
     <Content Include="Mobile\header_home.html" />
+    <Content Include="Mobile\header_products.html" />
     <Content Include="Mobile\header_upsell.html" />
     <Content Include="Mobile\howitworks.aspx" />
     <Content Include="Mobile\index.aspx" />
